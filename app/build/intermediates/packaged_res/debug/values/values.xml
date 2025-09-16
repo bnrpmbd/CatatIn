@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="supported_audio_formats">
+        <item>mp3</item>
+        <item>wav</item>
+        <item>m4a</item>
+        <item>aac</item>
+        <item>ogg</item>
+    </string-array>
+    <bool name="demo_mode">true</bool>
+    <color name="background_light">#F5F5F5</color>
+    <color name="black">#FF000000</color>
+    <color name="expense_red">#F44336</color>
+    <color name="income_green">#4CAF50</color>
+    <color name="primary_blue">#2196F3</color>
+    <color name="primary_green">#4CAF50</color>
+    <color name="primary_orange">#FF9800</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="white">#FFFFFFFF</color>
+    <integer name="max_audio_duration_seconds">600</integer>
+    <integer name="max_audio_file_size_mb">50</integer>
+    <string name="add_note">Tambah Catatan</string>
+    <string name="add_todo">Tambah Todo</string>
+    <string name="add_transaction">Tambah Transaksi</string>
+    <string name="app_name">CatatIn</string>
+    <string name="cancel">Batal</string>
+    <string name="delete">Hapus</string>
+    <string name="edit">Edit</string>
+    <string name="finance_title">Catatan Keuangan</string>
+    <string name="google_cloud_api_key" translatable="false">YOUR_GOOGLE_CLOUD_API_KEY_HERE</string>
+    <string name="save">Simpan</string>
+    <string name="todo_list_title">To Do List</string>
+    <string name="voice_input">Voice Input</string>
+    <string name="voice_note_title">Voice to Text</string>
+    <style name="Theme.CatatIn" parent="Theme.Material3.DayNight">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+    </style>
+</resources>

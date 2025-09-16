@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- By default, all files are backed up. You can exclude specific files or directories -->
+    <exclude domain="file" path="private/" />
+    <exclude domain="database" path="sensitive.db" />
+    
+    <!-- Include specific directories for backup -->
+    <include domain="file" path="." />
+</full-backup-content>

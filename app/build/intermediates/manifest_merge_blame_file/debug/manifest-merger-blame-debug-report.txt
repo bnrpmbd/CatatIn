@@ -1,0 +1,208 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alphacoms.catatin"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="33" />
+10
+11    <!-- Permissions -->
+12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+12-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:6:5-71
+12-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:6:22-68
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:7:5-67
+13-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:7:22-64
+14
+15    <!-- Storage permissions (compatibility for different Android versions) -->
+16    <uses-permission
+16-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:10:5-11:38
+17        android:name="android.permission.READ_EXTERNAL_STORAGE"
+17-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:10:22-77
+18        android:maxSdkVersion="32" />
+18-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:11:9-35
+19    <uses-permission
+19-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:12:5-13:38
+20        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+20-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:12:22-78
+21        android:maxSdkVersion="29" />
+21-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:13:9-35
+22
+23    <!-- Android 13+ permissions -->
+24    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+24-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:16:5-75
+24-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:16:22-72
+25
+26    <!-- Speech Recognition feature -->
+27    <uses-feature
+27-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:19:5-21:35
+28        android:name="android.hardware.microphone"
+28-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:20:9-51
+29        android:required="true" />
+29-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:21:9-32
+30
+31    <permission
+31-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+32        android:name="com.alphacoms.catatin.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+32-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+33        android:protectionLevel="signature" />
+33-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+34
+35    <uses-permission android:name="com.alphacoms.catatin.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+35-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+35-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+36
+37    <application
+37-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:23:5-63:19
+38        android:allowBackup="true"
+38-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:24:9-35
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+40        android:dataExtractionRules="@xml/data_extraction_rules"
+40-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:25:9-65
+41        android:debuggable="true"
+42        android:extractNativeLibs="false"
+43        android:fullBackupContent="@xml/backup_rules"
+43-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:26:9-54
+44        android:icon="@mipmap/ic_launcher"
+44-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:27:9-43
+45        android:label="@string/app_name"
+45-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:28:9-41
+46        android:roundIcon="@mipmap/ic_launcher_round"
+46-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:29:9-54
+47        android:supportsRtl="true"
+47-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:30:9-35
+48        android:testOnly="true"
+49        android:theme="@style/Theme.CatatIn" >
+49-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:31:9-45
+50
+51        <!-- Main Activity -->
+52        <activity
+52-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:35:9-43:20
+53            android:name="com.alphacoms.catatin.MainActivity"
+53-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:36:13-41
+54            android:exported="true"
+54-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:37:13-36
+55            android:theme="@style/Theme.CatatIn" >
+55-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:38:13-49
+56            <intent-filter>
+56-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:39:13-42:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:40:17-69
+57-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:40:25-66
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:41:17-77
+59-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:41:27-74
+60            </intent-filter>
+61        </activity>
+62
+63        <!-- Voice Note Activity -->
+64        <activity
+64-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:46:9-49:58
+65            android:name="com.alphacoms.catatin.ui.VoiceNoteActivity"
+65-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:47:13-49
+66            android:exported="false"
+66-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:48:13-37
+67            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
+67-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:49:13-55
+68
+69        <!-- Todo List Activity -->
+70        <activity
+70-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:52:9-55:58
+71            android:name="com.alphacoms.catatin.ui.ToDoListActivity"
+71-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:53:13-48
+72            android:exported="false"
+72-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:54:13-37
+73            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
+73-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:55:13-55
+74
+75        <!-- Finance Activity -->
+76        <activity
+76-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:58:9-61:58
+77            android:name="com.alphacoms.catatin.ui.FinanceActivity"
+77-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:59:13-47
+78            android:exported="false"
+78-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:60:13-37
+79            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
+79-->C:\Users\ASUS\OneDrive - Alpha Coms\Kuliah\Semester 5\PAPB\Tugas Akhir\CatatIn\app\src\main\AndroidManifest.xml:61:13-55
+80
+81        <service
+81-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:24:9-28:63
+82            android:name="androidx.room.MultiInstanceInvalidationService"
+82-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:25:13-74
+83            android:directBootAware="true"
+83-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:26:13-43
+84            android:exported="false" />
+84-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:27:13-37
+85
+86        <provider
+86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\6c045f17f57c03eaa369115d4b7e6558\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+87            android:name="androidx.startup.InitializationProvider"
+87-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\6c045f17f57c03eaa369115d4b7e6558\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+88            android:authorities="com.alphacoms.catatin.androidx-startup"
+88-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\6c045f17f57c03eaa369115d4b7e6558\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+89            android:exported="false" >
+89-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\6c045f17f57c03eaa369115d4b7e6558\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+90            <meta-data
+90-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\6c045f17f57c03eaa369115d4b7e6558\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+91                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+91-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\6c045f17f57c03eaa369115d4b7e6558\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+92                android:value="androidx.startup" />
+92-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\6c045f17f57c03eaa369115d4b7e6558\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+93            <meta-data
+93-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\0784c268f264593035ec661221600f6d\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+94                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+94-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\0784c268f264593035ec661221600f6d\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+95                android:value="androidx.startup" />
+95-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\0784c268f264593035ec661221600f6d\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+96            <meta-data
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+97                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+98                android:value="androidx.startup" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+99        </provider>
+100
+101        <receiver
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+102            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+103            android:directBootAware="false"
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+104            android:enabled="true"
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+105            android:exported="true"
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+106            android:permission="android.permission.DUMP" >
+106-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+108                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+109            </intent-filter>
+110            <intent-filter>
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+111                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+112            </intent-filter>
+113            <intent-filter>
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+114                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+115            </intent-filter>
+116            <intent-filter>
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+117                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\c1913a9b6f4af0724a3a4157115324e6\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+118            </intent-filter>
+119        </receiver>
+120    </application>
+121
+122</manifest>

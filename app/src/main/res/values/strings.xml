@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CatatIn</string>
+    <string name="voice_note_title">Voice to Text</string>
+    <string name="todo_list_title">To Do List</string>
+    <string name="finance_title">Catatan Keuangan</string>
+    <string name="add_note">Tambah Catatan</string>
+    <string name="add_todo">Tambah Todo</string>
+    <string name="add_transaction">Tambah Transaksi</string>
+    <string name="save">Simpan</string>
+    <string name="cancel">Batal</string>
+    <string name="delete">Hapus</string>
+    <string name="edit">Edit</string>
+    <string name="voice_input">Voice Input</string>
+</resources>

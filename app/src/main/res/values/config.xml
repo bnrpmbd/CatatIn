@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Google Cloud Speech-to-Text API Configuration -->
+    <!-- Ganti dengan API key Anda untuk production -->
+    <string name="google_cloud_api_key" translatable="false">YOUR_GOOGLE_CLOUD_API_KEY_HERE</string>
+    
+    <!-- Audio Processing Configuration -->
+    <integer name="max_audio_duration_seconds">600</integer> <!-- 10 minutes -->
+    <integer name="max_audio_file_size_mb">50</integer>
+    
+    <!-- Supported audio formats -->
+    <string-array name="supported_audio_formats">
+        <item>mp3</item>
+        <item>wav</item>
+        <item>m4a</item>
+        <item>aac</item>
+        <item>ogg</item>
+    </string-array>
+    
+    <!-- Demo mode (set to false when using real API) -->
+    <bool name="demo_mode">true</bool>
+</resources>
