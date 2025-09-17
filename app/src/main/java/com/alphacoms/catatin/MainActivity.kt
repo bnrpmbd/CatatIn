@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.alphacoms.catatin.ui.NotesActivity
 import com.alphacoms.catatin.ui.VoiceNoteActivity
 import com.alphacoms.catatin.ui.ToDoListActivity
 import com.alphacoms.catatin.ui.FinanceActivity
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
+        findViewById<CardView>(R.id.cardNotes).setOnClickListener {
+            startActivity(Intent(this, NotesActivity::class.java))
+        }
+
         findViewById<CardView>(R.id.cardVoiceNote).setOnClickListener {
             startActivity(Intent(this, VoiceNoteActivity::class.java))
         }

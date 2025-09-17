@@ -7,7 +7,6 @@
         <item>aac</item>
         <item>ogg</item>
     </string-array>
-    <bool name="demo_mode">true</bool>
     <color name="background_light">#F5F5F5</color>
     <color name="black">#FF000000</color>
     <color name="expense_red">#F44336</color>
@@ -33,7 +32,6 @@
     <string name="delete">Hapus</string>
     <string name="edit">Edit</string>
     <string name="finance_title">Catatan Keuangan</string>
-    <string name="google_cloud_api_key" translatable="false">YOUR_GOOGLE_CLOUD_API_KEY_HERE</string>
     <string name="save">Simpan</string>
     <string name="todo_list_title">To Do List</string>
     <string name="voice_input">Voice Input</string>

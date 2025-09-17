@@ -48,6 +48,12 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
+        <!-- Notes Activity -->
+        <activity
+            android:name=".ui.NotesActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
         <!-- Todo List Activity -->
         <activity
             android:name=".ui.ToDoListActivity"

@@ -1,7 +1,6 @@
 R_DEF: Internal format may change without notice
 local
 array supported_audio_formats
-bool demo_mode
 color background_light
 color black
 color expense_red
@@ -27,6 +26,7 @@ id btnSaveNote
 id btnSelectDueDate
 id btnVoiceInput
 id cardFinance
+id cardNotes
 id cardTodoList
 id cardVoiceNote
 id cbTodoCompleted
@@ -34,10 +34,13 @@ id etContent
 id etFinanceAmount
 id etFinanceDescription
 id etFinanceTitle
+id etNoteContent
+id etNoteTitle
 id etTitle
 id etTodoDescription
 id etTodoTitle
 id fabAddFinance
+id fabAddNote
 id fabAddTodo
 id progressIndicator
 id rbExpense
@@ -57,6 +60,7 @@ id tvNoteContent
 id tvNoteDate
 id tvNoteTitle
 id tvProcessingStatus
+id tvTitle
 id tvTodoDescription
 id tvTodoDueDate
 id tvTodoPriority
@@ -67,9 +71,11 @@ integer max_audio_duration_seconds
 integer max_audio_file_size_mb
 layout activity_finance
 layout activity_main
+layout activity_notes
 layout activity_todo_list
 layout activity_voice_note
 layout dialog_add_finance
+layout dialog_add_note
 layout dialog_add_todo
 layout item_finance
 layout item_note
@@ -84,7 +90,6 @@ string cancel
 string delete
 string edit
 string finance_title
-string google_cloud_api_key
 string save
 string todo_list_title
 string voice_input

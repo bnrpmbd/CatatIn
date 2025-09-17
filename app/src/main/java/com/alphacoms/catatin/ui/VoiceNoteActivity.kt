@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alphacoms.catatin.R
 import com.alphacoms.catatin.data.AppDatabase
 import com.alphacoms.catatin.data.Note
+import com.alphacoms.catatin.ui.NotesAdapter
 import com.alphacoms.catatin.utils.AudioProcessor
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -112,9 +113,10 @@ class VoiceNoteActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        notesAdapter = NotesAdapter { note ->
-            deleteNote(note)
-        }
+        notesAdapter = NotesAdapter(
+            onItemClick = { note -> editNote(note) },
+            onDeleteClick = { note -> deleteNote(note) }
+        )
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = notesAdapter
     }
@@ -215,6 +217,11 @@ class VoiceNoteActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun editNote(note: Note) {
+        etTitle.setText(note.title)
+        etContent.setText(note.content)
     }
 
     private fun clearInputs() {

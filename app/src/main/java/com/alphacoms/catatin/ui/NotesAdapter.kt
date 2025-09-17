@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class NotesAdapter(
+    private val onItemClick: (Note) -> Unit,
     private val onDeleteClick: (Note) -> Unit
 ) : ListAdapter<Note, NotesAdapter.NoteViewHolder>(NoteDiffCallback()) {
 
@@ -37,6 +38,10 @@ class NotesAdapter(
             tvTitle.text = note.title
             tvContent.text = note.content
             tvDate.text = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(note.createdAt)
+            
+            itemView.setOnClickListener {
+                onItemClick(note)
+            }
             
             btnDelete.setOnClickListener {
                 onDeleteClick(note)

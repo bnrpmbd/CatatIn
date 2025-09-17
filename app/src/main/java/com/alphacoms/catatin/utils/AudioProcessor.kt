@@ -3,19 +3,10 @@ package com.alphacoms.catatin.utils
 import android.content.Context
 import android.media.MediaMetadataRetriever
 import android.net.Uri
-import com.google.gson.Gson
-import com.google.gson.JsonObject
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
-import java.util.concurrent.TimeUnit
 
 class AudioProcessor(private val context: Context) {
 
     companion object {
-        private const val SPEECH_TO_TEXT_URL = "https://speech.googleapis.com/v1/speech:recognize"
         private const val MAX_AUDIO_SIZE = 50 * 1024 * 1024 // 50MB
         private val SUPPORTED_FORMATS = listOf("mp3", "wav", "m4a", "aac", "ogg")
     }
@@ -48,6 +39,71 @@ class AudioProcessor(private val context: Context) {
             val retriever = MediaMetadataRetriever()
             retriever.setDataSource(context, uri)
             val duration = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+            duration?.toLongOrNull() ?: 0L
+        } catch (e: Exception) {
+            0L
+        }
+    }
+
+    /**
+     * Get audio file size
+     */
+    fun getAudioFileSize(uri: Uri): Long {
+        return try {
+            context.contentResolver.openInputStream(uri)?.use { inputStream ->
+                inputStream.available().toLong()
+            } ?: 0L
+        } catch (e: Exception) {
+            0L
+        }
+    }
+
+    /**
+     * Validate audio file size
+     */
+    fun isAudioFileSizeValid(uri: Uri): Boolean {
+        return getAudioFileSize(uri) <= MAX_AUDIO_SIZE
+    }
+
+    /**
+     * Get file name from URI
+     */
+    private fun getFileName(uri: Uri): String {
+        return try {
+            context.contentResolver.query(uri, null, null, null, null)?.use { cursor ->
+                if (cursor.moveToFirst()) {
+                    val nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME)
+                    if (nameIndex >= 0) cursor.getString(nameIndex) else "audio_file"
+                } else "audio_file"
+            } ?: "audio_file"
+        } catch (e: Exception) {
+            "audio_file"
+        }
+    }
+
+    /**
+     * Simple demo transcription - returns placeholder text
+     * In a real implementation, this would call a speech-to-text API
+     */
+    suspend fun transcribeAudio(uri: Uri): TranscriptionResult {
+        return try {
+            // Simulate processing time
+            kotlinx.coroutines.delay(2000)
+            
+            val fileName = getFileName(uri)
+            TranscriptionResult(
+                success = true,
+                text = "Demo transcription for $fileName. Silakan ganti dengan implementasi speech-to-text yang sebenarnya.",
+                confidence = 0.95f
+            )
+        } catch (e: Exception) {
+            TranscriptionResult(
+                success = false,
+                error = "Error processing audio: ${e.message}"
+            )
+        }
+    }
+}
             retriever.release()
             duration?.toLongOrNull() ?: 0L
         } catch (e: Exception) {

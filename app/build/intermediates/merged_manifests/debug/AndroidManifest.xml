@@ -66,6 +66,12 @@
             android:exported="false"
             android:parentActivityName="com.alphacoms.catatin.MainActivity" />
 
+        <!-- Notes Activity -->
+        <activity
+            android:name="com.alphacoms.catatin.ui.NotesActivity"
+            android:exported="false"
+            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
+
         <!-- Todo List Activity -->
         <activity
             android:name="com.alphacoms.catatin.ui.ToDoListActivity"

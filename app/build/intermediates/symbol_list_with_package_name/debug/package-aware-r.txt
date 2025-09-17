@@ -1233,7 +1233,6 @@ attr yearStyle
 attr yearTodayStyle
 bool abc_action_bar_embed_tabs
 bool abc_config_actionMenuItemAllCaps
-bool demo_mode
 bool mtrl_btn_textappearance_all_caps
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
@@ -3076,6 +3075,7 @@ id btnVoiceInput
 id buttonPanel
 id cancel_button
 id cardFinance
+id cardNotes
 id cardTodoList
 id cardVoiceNote
 id cbTodoCompleted
@@ -3149,6 +3149,8 @@ id etContent
 id etFinanceAmount
 id etFinanceDescription
 id etFinanceTitle
+id etNoteContent
+id etNoteTitle
 id etTitle
 id etTodoDescription
 id etTodoTitle
@@ -3156,6 +3158,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fabAddFinance
+id fabAddNote
 id fabAddTodo
 id fade
 id fill
@@ -3450,6 +3453,7 @@ id tvNoteContent
 id tvNoteDate
 id tvNoteTitle
 id tvProcessingStatus
+id tvTitle
 id tvTodoDescription
 id tvTodoDueDate
 id tvTodoPriority
@@ -3591,6 +3595,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_finance
 layout activity_main
+layout activity_notes
 layout activity_todo_list
 layout activity_voice_note
 layout custom_dialog
@@ -3610,6 +3615,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_add_finance
+layout dialog_add_note
 layout dialog_add_todo
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
@@ -3739,7 +3745,6 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string finance_title
-string google_cloud_api_key
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
