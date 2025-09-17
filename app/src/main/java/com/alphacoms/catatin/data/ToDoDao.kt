@@ -20,6 +20,9 @@ interface ToDoDao {
     @Insert
     suspend fun insertToDo(todo: ToDo): Long
 
+    @Insert
+    suspend fun insert(note: ToDo)
+
     @Update
     suspend fun updateToDo(todo: ToDo)
 

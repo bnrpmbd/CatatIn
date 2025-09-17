@@ -3,12 +3,40 @@ package com.alphacoms.catatin.utils
 import android.content.Context
 import android.media.MediaMetadataRetriever
 import android.net.Uri
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.Dispatchers
+import com.google.gson.JsonObject
+import com.google.gson.Gson
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.util.concurrent.TimeUnit
+
+
 
 class AudioProcessor(private val context: Context) {
 
     companion object {
         private const val MAX_AUDIO_SIZE = 50 * 1024 * 1024 // 50MB
         private val SUPPORTED_FORMATS = listOf("mp3", "wav", "m4a", "aac", "ogg")
+        private const val SPEECH_TO_TEXT_URL = "https://api.example.com/speech-to-text"
+    }
+
+    /**
+     * Get file name from URI
+     */
+    private fun getFileName(uri: Uri): String {
+        return try {
+            context.contentResolver.query(uri, null, null, null, null)?.use { cursor ->
+                if (cursor.moveToFirst()) {
+                    val nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME)
+                    if (nameIndex >= 0) cursor.getString(nameIndex) else "audio_file"
+                } else "audio_file"
+            } ?: "audio_file"
+        } catch (e: Exception) {
+            "audio_file"
+        }
     }
 
     data class TranscriptionResult(
@@ -65,21 +93,7 @@ class AudioProcessor(private val context: Context) {
         return getAudioFileSize(uri) <= MAX_AUDIO_SIZE
     }
 
-    /**
-     * Get file name from URI
-     */
-    private fun getFileName(uri: Uri): String {
-        return try {
-            context.contentResolver.query(uri, null, null, null, null)?.use { cursor ->
-                if (cursor.moveToFirst()) {
-                    val nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME)
-                    if (nameIndex >= 0) cursor.getString(nameIndex) else "audio_file"
-                } else "audio_file"
-            } ?: "audio_file"
-        } catch (e: Exception) {
-            "audio_file"
-        }
-    }
+
 
     /**
      * Simple demo transcription - returns placeholder text
@@ -103,26 +117,38 @@ class AudioProcessor(private val context: Context) {
             )
         }
     }
-}
-            retriever.release()
-            duration?.toLongOrNull() ?: 0L
-        } catch (e: Exception) {
-            0L
-        }
-    }
+//}
+//            retriever.release()
+//            duration?.toLongOrNull() ?: 0L
+//        } catch (e: Exception) {
+//            0L
+//        }
+//    }
 
     /**
      * Get audio file size
      */
-    fun getAudioFileSize(uri: Uri): Long {
-        return try {
-            context.contentResolver.openFileDescriptor(uri, "r")?.use { descriptor ->
-                descriptor.statSize
-            } ?: 0L
-        } catch (e: Exception) {
-            0L
-        }
-    }
+//    fun getAudioDuration(uri: Uri): Long {
+//        val retriever = MediaMetadataRetriever()
+//        return try {
+//            retriever.setDataSource(context, uri)
+//            val duration = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+//            duration?.toLongOrNull() ?: 0L
+//        } catch (e: Exception) {
+//            0L
+//        } finally {
+//            retriever.release() // tetap dipanggil, meski error
+//        }
+//    }
+//    fun getAudioFileSize(uri: Uri): Long {
+//        return try {
+//            context.contentResolver.openFileDescriptor(uri, "r")?.use { descriptor ->
+//                descriptor.statSize
+//            } ?: 0L
+//        } catch (e: Exception) {
+//            0L
+//        }
+//    }
 
     /**
      * Validate audio file before processing
@@ -319,20 +345,20 @@ class AudioProcessor(private val context: Context) {
         }
     }
 
-    private fun getFileName(uri: Uri): String {
-        return try {
-            val cursor = context.contentResolver.query(uri, null, null, null, null)
-            cursor?.use {
-                if (it.moveToFirst()) {
-                    val nameIndex = it.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME)
-                    if (nameIndex >= 0) {
-                        return it.getString(nameIndex)
-                    }
-                }
-            }
-            "unknown_audio_file"
-        } catch (e: Exception) {
-            "unknown_audio_file"
-        }
-    }
+//    private fun getFileName(uri: Uri): String {
+//        return try {
+//            val cursor = context.contentResolver.query(uri, null, null, null, null)
+//            cursor?.use {
+//                if (it.moveToFirst()) {
+//                    val nameIndex = it.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME)
+//                    if (nameIndex >= 0) {
+//                        return it.getString(nameIndex)
+//                    }
+//                }
+//            }
+//            "unknown_audio_file"
+//        } catch (e: Exception) {
+//            "unknown_audio_file"
+//        }
+//    }
 }

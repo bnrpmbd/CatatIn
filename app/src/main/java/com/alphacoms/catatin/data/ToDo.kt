@@ -16,6 +16,6 @@ data class ToDo(
     val priority: Priority = Priority.NORMAL
 )
 
-enum class Priority {
-    LOW, NORMAL, HIGH, URGENT
-}
+//enum class Priority {
+//    LOW, NORMAL, HIGH, URGENT
+//}

@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alphacoms.catatin.R
 import com.alphacoms.catatin.data.AppDatabase
 import com.alphacoms.catatin.data.Note
-import com.alphacoms.catatin.ui.NotesAdapter
+import com.alphacoms.catatin.data.NoteDao
+import com.alphacoms.catatin.data.ToDoViewModel
+import com.alphacoms.catatin.data.ToDoViewModelFactory
+import com.alphacoms.catatin.data.ToDoRepository
+//import com.alphacoms.catatin.ui.NotesAdapter
 import com.alphacoms.catatin.utils.AudioProcessor
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -80,6 +85,12 @@ class VoiceNoteActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Permission ditolak. Tidak dapat menggunakan voice input.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private val viewModel: ToDoViewModel by viewModels {
+        val dao = AppDatabase.getDatabase(this).todoDao()
+        val repo = ToDoRepository(dao)
+        ToDoViewModelFactory(repo)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -191,7 +202,7 @@ class VoiceNoteActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
-                database.noteDao().insertNote(note)
+                database.noteDao().insert(note)
                 runOnUiThread {
                     Toast.makeText(this@VoiceNoteActivity, "Catatan berhasil disimpan!", Toast.LENGTH_SHORT).show()
                     clearInputs()
@@ -207,7 +218,7 @@ class VoiceNoteActivity : AppCompatActivity() {
     private fun deleteNote(note: Note) {
         lifecycleScope.launch {
             try {
-                database.noteDao().deleteNote(note)
+                database.noteDao().delete(note)
                 runOnUiThread {
                     Toast.makeText(this@VoiceNoteActivity, "Catatan dihapus", Toast.LENGTH_SHORT).show()
                 }

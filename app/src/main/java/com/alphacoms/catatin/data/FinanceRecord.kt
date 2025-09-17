@@ -16,6 +16,6 @@ data class FinanceRecord(
     val createdAt: Date
 )
 
-enum class TransactionType {
-    INCOME, EXPENSE
-}
+//enum class TransactionType {
+//    INCOME, EXPENSE
+//}
