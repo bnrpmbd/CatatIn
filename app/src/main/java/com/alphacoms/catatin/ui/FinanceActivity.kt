@@ -243,40 +243,36 @@ class FinanceActivity : AppCompatActivity() {
 
     private fun observeFinanceTotals() {
         val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+        
+        // Variables to store current values
+        var currentIncome = 0.0
+        var currentExpense = 0.0
 
+        // Observe income changes
         database.financeDao().getTotalIncome().observe(this) { totalIncome ->
-            val income = totalIncome ?: 0.0
-            tvTotalIncome.text = formatter.format(income)
-            updateBalance()
+            currentIncome = totalIncome ?: 0.0
+            tvTotalIncome.text = formatter.format(currentIncome)
+            // Update balance whenever income changes
+            updateBalanceDisplay(currentIncome, currentExpense, formatter)
         }
 
+        // Observe expense changes
         database.financeDao().getTotalExpense().observe(this) { totalExpense ->
-            val expense = totalExpense ?: 0.0
-            tvTotalExpense.text = formatter.format(expense)
-            updateBalance()
+            currentExpense = totalExpense ?: 0.0
+            tvTotalExpense.text = formatter.format(currentExpense)
+            // Update balance whenever expense changes
+            updateBalanceDisplay(currentIncome, currentExpense, formatter)
         }
     }
 
-    private fun updateBalance() {
-        lifecycleScope.launch {
-            try {
-                val totalIncome = database.financeDao().getTotalIncome().value ?: 0.0
-                val totalExpense = database.financeDao().getTotalExpense().value ?: 0.0
-                val balance = totalIncome - totalExpense
-
-                runOnUiThread {
-                    val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
-                    tvBalance.text = formatter.format(balance)
-                    tvBalance.setTextColor(
-                        if (balance >= 0) 
-                            android.graphics.Color.parseColor("#4CAF50") 
-                        else 
-                            android.graphics.Color.parseColor("#F44336")
-                    )
-                }
-            } catch (e: Exception) {
-                // Handle error silently
-            }
-        }
+    private fun updateBalanceDisplay(income: Double, expense: Double, formatter: NumberFormat) {
+        val balance = income - expense
+        tvBalance.text = formatter.format(balance)
+        tvBalance.setTextColor(
+            if (balance >= 0) 
+                android.graphics.Color.parseColor("#4CAF50") 
+            else 
+                android.graphics.Color.parseColor("#F44336")
+        )
     }
 }

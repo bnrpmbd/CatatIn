@@ -11,6 +11,7 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- Storage permissions (compatibility for different Android versions) -->
     <uses-permission
@@ -46,7 +47,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.CatatIn" >
+        android:theme="@style/Theme.CatatIn"
+        android:usesCleartextTraffic="false" >
 
         <!-- Main Activity -->
         <activity

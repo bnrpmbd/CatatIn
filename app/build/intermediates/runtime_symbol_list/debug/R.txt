@@ -2133,6 +2133,7 @@ int dimen design_tab_scrollable_min_width 0x7f07008a
 int dimen design_tab_text_size 0x7f07008b
 int dimen design_tab_text_size_2line 0x7f07008c
 int dimen design_textinput_caption_translate_y 0x7f07008d
+int dimen dialog_margin 0x7f07031b
 int dimen disabled_alpha_material_dark 0x7f07008e
 int dimen disabled_alpha_material_light 0x7f07008f
 int dimen fastscroll_default_thickness 0x7f070090
@@ -2778,6 +2779,13 @@ int dimen notification_small_icon_size_as_large 0x7f07030f
 int dimen notification_subtext_size 0x7f070310
 int dimen notification_top_pad 0x7f070311
 int dimen notification_top_pad_large_text 0x7f070312
+int dimen spacing_large 0x7f07031c
+int dimen spacing_medium 0x7f07031d
+int dimen spacing_small 0x7f07031e
+int dimen text_size_large 0x7f07031f
+int dimen text_size_medium 0x7f070320
+int dimen text_size_small 0x7f070321
+int dimen text_size_xlarge 0x7f070322
 int dimen tooltip_corner_radius 0x7f070313
 int dimen tooltip_horizontal_padding 0x7f070314
 int dimen tooltip_margin 0x7f070315
@@ -3067,7 +3075,6 @@ int id bounce 0x7f090057
 int id btnDeleteFinance 0x7f090058
 int id btnDeleteNote 0x7f090059
 int id btnDeleteTodo 0x7f09005a
-int id btnImportAudio 0x7f09005b
 int id btnSaveNote 0x7f09005c
 int id btnSelectDueDate 0x7f09005d
 int id btnVoiceInput 0x7f09005e
@@ -3320,7 +3327,6 @@ int id pooling_container_listener_holder_tag 0x7f090154
 int id position 0x7f090155
 int id postLayout 0x7f090156
 int id pressed 0x7f090157
-int id progressIndicator 0x7f090158
 int id progress_circular 0x7f090159
 int id progress_horizontal 0x7f09015a
 int id radio 0x7f09015b
@@ -3451,7 +3457,6 @@ int id tvFinanceTitle 0x7f0901d7
 int id tvNoteContent 0x7f0901d8
 int id tvNoteDate 0x7f0901d9
 int id tvNoteTitle 0x7f0901da
-int id tvProcessingStatus 0x7f0901db
 int id tvTitle 0x7f0901dc
 int id tvTodoDescription 0x7f0901dd
 int id tvTodoDueDate 0x7f0901de
@@ -3682,6 +3687,7 @@ int layout select_dialog_item_material 0x7f0c0072
 int layout select_dialog_multichoice_material 0x7f0c0073
 int layout select_dialog_singlechoice_material 0x7f0c0074
 int layout support_simple_spinner_dropdown_item 0x7f0c0075
+int menu menu_voice_note 0x7f140000
 int mipmap ic_launcher 0x7f0e0000
 int mipmap ic_launcher_round 0x7f0e0001
 int plurals mtrl_badge_content_description 0x7f0f0000
@@ -3747,6 +3753,7 @@ int string finance_title 0x7f10003a
 int string hide_bottom_view_on_scroll_behavior 0x7f10003b
 int string icon_content_description 0x7f10003c
 int string item_view_role_description 0x7f10003d
+int string jna_library_appname 0x7f1000b2
 int string m3_exceed_max_badge_text_suffix 0x7f10003e
 int string m3_ref_typeface_brand_medium 0x7f10003f
 int string m3_ref_typeface_brand_regular 0x7f100040

@@ -2134,6 +2134,7 @@ dimen design_tab_scrollable_min_width
 dimen design_tab_text_size
 dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
+dimen dialog_margin
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
 dimen fastscroll_default_thickness
@@ -2779,6 +2780,13 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen spacing_large
+dimen spacing_medium
+dimen spacing_small
+dimen text_size_large
+dimen text_size_medium
+dimen text_size_small
+dimen text_size_xlarge
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -3068,7 +3076,6 @@ id bounce
 id btnDeleteFinance
 id btnDeleteNote
 id btnDeleteTodo
-id btnImportAudio
 id btnSaveNote
 id btnSelectDueDate
 id btnVoiceInput
@@ -3321,7 +3328,6 @@ id pooling_container_listener_holder_tag
 id position
 id postLayout
 id pressed
-id progressIndicator
 id progress_circular
 id progress_horizontal
 id radio
@@ -3452,7 +3458,6 @@ id tvFinanceTitle
 id tvNoteContent
 id tvNoteDate
 id tvNoteTitle
-id tvProcessingStatus
 id tvTitle
 id tvTodoDescription
 id tvTodoDueDate
@@ -3683,6 +3688,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menu_voice_note
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -3748,6 +3754,7 @@ string finance_title
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string jna_library_appname
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular
