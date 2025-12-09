@@ -9,6 +9,7 @@
     </string-array>
     <color name="background_light">#F5F5F5</color>
     <color name="black">#FF000000</color>
+    <color name="colorPrimary">#1976D2</color>
     <color name="expense_red">#F44336</color>
     <color name="income_green">#4CAF50</color>
     <color name="primary_blue">#2196F3</color>
@@ -56,5 +57,10 @@
         
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         
+    </style>
+    <style name="Theme.CatatIn.NoActionBar" parent="Theme.CatatIn">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
 </resources>

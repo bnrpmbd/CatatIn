@@ -1283,6 +1283,7 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color colorPrimary
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -2909,6 +2910,8 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable indicator_active
+drawable indicator_inactive
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
@@ -3076,8 +3079,10 @@ id bounce
 id btnDeleteFinance
 id btnDeleteNote
 id btnDeleteTodo
+id btnNext
 id btnSaveNote
 id btnSelectDueDate
+id btnSkip
 id btnVoiceInput
 id buttonPanel
 id cancel_button
@@ -3209,10 +3214,14 @@ id inward
 id is_pooling_container_tag
 id italic
 id item_touch_helper_previous_elevation
+id ivIcon
+id ivLogo
 id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layoutBottom
+id layoutIndicators
 id left
 id leftToRight
 id legacy
@@ -3328,6 +3337,7 @@ id pooling_container_listener_holder_tag
 id position
 id postLayout
 id pressed
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -3449,15 +3459,19 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAppName
 id tvBalance
+id tvDescription
 id tvFinanceAmount
 id tvFinanceCategory
 id tvFinanceDate
 id tvFinanceDescription
 id tvFinanceTitle
+id tvLoading
 id tvNoteContent
 id tvNoteDate
 id tvNoteTitle
+id tvTagline
 id tvTitle
 id tvTodoDescription
 id tvTodoDueDate
@@ -3470,6 +3484,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id viewPager
 id view_offset_helper
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
@@ -3601,6 +3616,8 @@ layout abc_tooltip
 layout activity_finance
 layout activity_main
 layout activity_notes
+layout activity_onboarding
+layout activity_splash
 layout activity_todo_list
 layout activity_voice_note
 layout custom_dialog
@@ -3626,6 +3643,7 @@ layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_finance
 layout item_note
+layout item_onboarding
 layout item_todo
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
@@ -4417,6 +4435,7 @@ style Theme_AppCompat_Light_DialogWhenLarge
 style Theme_AppCompat_Light_NoActionBar
 style Theme_AppCompat_NoActionBar
 style Theme_CatatIn
+style Theme_CatatIn_NoActionBar
 style Theme_Design
 style Theme_Design_BottomSheetDialog
 style Theme_Design_Light

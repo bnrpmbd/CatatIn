@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-73:12
+ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:2:1-85:12
 MERGED from [androidx.databinding:viewbinding:8.1.4] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\0fc400f5f4ac6f9cbd0431a475990ca5\transformed\jetified-viewbinding-8.1.4\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.room:room-ktx:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e7b15b21ce9c3455dd9f55c566478818\transformed\jetified-room-ktx-2.6.0\AndroidManifest.xml:17:1-22:12
@@ -104,8 +104,8 @@ ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:20:5-22:
 	android:name
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:21:9-51
 application
-ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:24:5-71:19
-INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:24:5-71:19
+ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:24:5-83:19
+INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:24:5-83:19
 MERGED from [androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:23:5-29:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\a0252879281cdb09c5f7899a3fcaddd7\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
@@ -148,14 +148,14 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\ASUS\.gradle\cache
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:26:9-65
 	android:usesCleartextTraffic
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:33:9-45
-activity#com.alphacoms.catatin.MainActivity
+activity#com.alphacoms.catatin.ui.SplashActivity
 ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:37:9-45:20
 	android:exported
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:39:13-36
 	android:theme
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:40:13-49
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:40:13-61
 	android:name
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:38:13-41
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:38:13-46
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:41:13-44:29
 action#android.intent.action.MAIN
@@ -166,38 +166,54 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:43:17-77
 	android:name
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:43:27-74
-activity#com.alphacoms.catatin.ui.VoiceNoteActivity
-ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:48:9-51:58
-	android:parentActivityName
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:51:13-55
+activity#com.alphacoms.catatin.ui.OnboardingActivity
+ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:48:9-51:64
 	android:exported
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:50:13-37
+	android:theme
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:51:13-61
 	android:name
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:49:13-49
-activity#com.alphacoms.catatin.ui.NotesActivity
-ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:54:9-57:58
-	android:parentActivityName
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:57:13-55
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:49:13-50
+activity#com.alphacoms.catatin.MainActivity
+ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:54:9-57:52
 	android:exported
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:56:13-37
+	android:theme
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:57:13-49
 	android:name
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:55:13-45
-activity#com.alphacoms.catatin.ui.ToDoListActivity
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:55:13-41
+activity#com.alphacoms.catatin.ui.VoiceNoteActivity
 ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:60:9-63:58
 	android:parentActivityName
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:63:13-55
 	android:exported
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:62:13-37
 	android:name
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:61:13-48
-activity#com.alphacoms.catatin.ui.FinanceActivity
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:61:13-49
+activity#com.alphacoms.catatin.ui.NotesActivity
 ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:66:9-69:58
 	android:parentActivityName
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:69:13-55
 	android:exported
 		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:68:13-37
 	android:name
-		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:67:13-47
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:67:13-45
+activity#com.alphacoms.catatin.ui.ToDoListActivity
+ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:72:9-75:58
+	android:parentActivityName
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:75:13-55
+	android:exported
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:74:13-37
+	android:name
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:73:13-48
+activity#com.alphacoms.catatin.ui.FinanceActivity
+ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:78:9-81:58
+	android:parentActivityName
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:81:13-55
+	android:exported
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:80:13-37
+	android:name
+		ADDED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:79:13-47
 uses-sdk
 INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml

@@ -50,17 +50,29 @@
         android:theme="@style/Theme.CatatIn"
         android:usesCleartextTraffic="false" >
 
-        <!-- Main Activity -->
+        <!-- Splash Screen Activity (LAUNCHER) -->
         <activity
-            android:name="com.alphacoms.catatin.MainActivity"
+            android:name="com.alphacoms.catatin.ui.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.CatatIn" >
+            android:theme="@style/Theme.CatatIn.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Onboarding Activity -->
+        <activity
+            android:name="com.alphacoms.catatin.ui.OnboardingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CatatIn.NoActionBar" />
+
+        <!-- Main Activity -->
+        <activity
+            android:name="com.alphacoms.catatin.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CatatIn" />
 
         <!-- Voice Note Activity -->
         <activity

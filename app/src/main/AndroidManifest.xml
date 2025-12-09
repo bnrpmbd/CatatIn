@@ -33,16 +33,28 @@
         android:usesCleartextTraffic="false"
         tools:targetApi="31">
         
-        <!-- Main Activity -->
+        <!-- Splash Screen Activity (LAUNCHER) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.CatatIn">
+            android:theme="@style/Theme.CatatIn.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Onboarding Activity -->
+        <activity
+            android:name=".ui.OnboardingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CatatIn.NoActionBar" />
+        
+        <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CatatIn" />
 
         <!-- Voice Note Activity -->
         <activity

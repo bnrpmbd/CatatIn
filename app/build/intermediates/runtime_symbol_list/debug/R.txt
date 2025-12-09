@@ -1282,6 +1282,7 @@ int color cardview_dark_background 0x7f06002d
 int color cardview_light_background 0x7f06002e
 int color cardview_shadow_end_color 0x7f06002f
 int color cardview_shadow_start_color 0x7f060030
+int color colorPrimary 0x7f0602f6
 int color design_bottom_navigation_shadow_color 0x7f060031
 int color design_box_stroke_color 0x7f060032
 int color design_dark_default_color_background 0x7f060033
@@ -2908,6 +2909,8 @@ int drawable ic_mtrl_chip_checked_black 0x7f080096
 int drawable ic_mtrl_chip_checked_circle 0x7f080097
 int drawable ic_mtrl_chip_close_circle 0x7f080098
 int drawable ic_search_black_24 0x7f080099
+int drawable indicator_active 0x7f0800e6
+int drawable indicator_inactive 0x7f0800e7
 int drawable m3_appbar_background 0x7f08009a
 int drawable m3_avd_hide_password 0x7f08009b
 int drawable m3_avd_show_password 0x7f08009c
@@ -3075,8 +3078,10 @@ int id bounce 0x7f090057
 int id btnDeleteFinance 0x7f090058
 int id btnDeleteNote 0x7f090059
 int id btnDeleteTodo 0x7f09005a
+int id btnNext 0x7f0901f8
 int id btnSaveNote 0x7f09005c
 int id btnSelectDueDate 0x7f09005d
+int id btnSkip 0x7f0901f9
 int id btnVoiceInput 0x7f09005e
 int id buttonPanel 0x7f09005f
 int id cancel_button 0x7f090060
@@ -3208,10 +3213,14 @@ int id inward 0x7f0900dd
 int id is_pooling_container_tag 0x7f0900de
 int id italic 0x7f0900df
 int id item_touch_helper_previous_elevation 0x7f0900e0
+int id ivIcon 0x7f0901fa
+int id ivLogo 0x7f0901fb
 int id jumpToEnd 0x7f0900e1
 int id jumpToStart 0x7f0900e2
 int id labeled 0x7f0900e3
 int id layout 0x7f0900e4
+int id layoutBottom 0x7f0901fc
+int id layoutIndicators 0x7f0901fd
 int id left 0x7f0900e5
 int id leftToRight 0x7f0900e6
 int id legacy 0x7f0900e7
@@ -3327,6 +3336,7 @@ int id pooling_container_listener_holder_tag 0x7f090154
 int id position 0x7f090155
 int id postLayout 0x7f090156
 int id pressed 0x7f090157
+int id progressBar 0x7f0901fe
 int id progress_circular 0x7f090159
 int id progress_horizontal 0x7f09015a
 int id radio 0x7f09015b
@@ -3448,15 +3458,19 @@ int id transition_position 0x7f0901ce
 int id transition_scene_layoutid_cache 0x7f0901cf
 int id transition_transform 0x7f0901d0
 int id triangle 0x7f0901d1
+int id tvAppName 0x7f0901ff
 int id tvBalance 0x7f0901d2
+int id tvDescription 0x7f090200
 int id tvFinanceAmount 0x7f0901d3
 int id tvFinanceCategory 0x7f0901d4
 int id tvFinanceDate 0x7f0901d5
 int id tvFinanceDescription 0x7f0901d6
 int id tvFinanceTitle 0x7f0901d7
+int id tvLoading 0x7f090201
 int id tvNoteContent 0x7f0901d8
 int id tvNoteDate 0x7f0901d9
 int id tvNoteTitle 0x7f0901da
+int id tvTagline 0x7f090202
 int id tvTitle 0x7f0901dc
 int id tvTodoDescription 0x7f0901dd
 int id tvTodoDueDate 0x7f0901de
@@ -3469,6 +3483,7 @@ int id uniform 0x7f0901e4
 int id unlabeled 0x7f0901e5
 int id up 0x7f0901e6
 int id useLogo 0x7f0901e7
+int id viewPager 0x7f090203
 int id view_offset_helper 0x7f0901e8
 int id view_tree_lifecycle_owner 0x7f0901e9
 int id view_tree_on_back_pressed_dispatcher_owner 0x7f0901ea
@@ -3600,6 +3615,8 @@ int layout abc_tooltip 0x7f0c001b
 int layout activity_finance 0x7f0c001c
 int layout activity_main 0x7f0c001d
 int layout activity_notes 0x7f0c001e
+int layout activity_onboarding 0x7f0c0076
+int layout activity_splash 0x7f0c0077
 int layout activity_todo_list 0x7f0c001f
 int layout activity_voice_note 0x7f0c0020
 int layout custom_dialog 0x7f0c0021
@@ -3625,6 +3642,7 @@ int layout ime_base_split_test_activity 0x7f0c0034
 int layout ime_secondary_split_test_activity 0x7f0c0035
 int layout item_finance 0x7f0c0036
 int layout item_note 0x7f0c0037
+int layout item_onboarding 0x7f0c0078
 int layout item_todo 0x7f0c0038
 int layout m3_alert_dialog 0x7f0c0039
 int layout m3_alert_dialog_actions 0x7f0c003a
@@ -4416,6 +4434,7 @@ int style Theme_AppCompat_Light_DialogWhenLarge 0x7f11021e
 int style Theme_AppCompat_Light_NoActionBar 0x7f11021f
 int style Theme_AppCompat_NoActionBar 0x7f110220
 int style Theme_CatatIn 0x7f110221
+int style Theme_CatatIn_NoActionBar 0x7f11045c
 int style Theme_Design 0x7f110222
 int style Theme_Design_BottomSheetDialog 0x7f110223
 int style Theme_Design_Light 0x7f110224
