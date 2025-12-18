@@ -80,6 +80,7 @@ class ToDoAdapter(
             return when (priority) {
                 Priority.URGENT -> android.graphics.Color.parseColor("#F44336") // Red
                 Priority.HIGH -> android.graphics.Color.parseColor("#FF9800") // Orange
+                Priority.MEDIUM -> android.graphics.Color.parseColor("#FFC107") // Amber
                 Priority.NORMAL -> android.graphics.Color.parseColor("#4CAF50") // Green
                 Priority.LOW -> android.graphics.Color.parseColor("#9E9E9E") // Grey
             }

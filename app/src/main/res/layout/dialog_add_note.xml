@@ -1,38 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingBottom="16dp">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Judul Catatan">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etNoteTitle"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1" />
+            android:text="Batalkan"
+            android:textColor="#FFAB91"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catatan Baru"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@id/btnCancel"
+            app:layout_constraintEnd_toStartOf="@id/btnSave"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <TextView
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Simpan"
+            android:textColor="#FFAB91"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/etNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Isi Catatan">
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_white_rounded"
+        android:hint="Judul Catatan..."
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textColorHint="#BDBDBD"
+        android:inputType="textCapSentences"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etNoteContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            android:gravity="top" />
+    <EditText
+        android:id="@+id/etNoteContent"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_white_rounded"
+        android:hint="Isi Catatan..."
+        android:gravity="top|start"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textColorHint="#BDBDBD"
+        android:inputType="textMultiLine"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:id="@+id/bottomActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="16dp"
+        android:background="#00FFFFFF">
+
+        <ImageView
+            android:id="@+id/btnActionChecklist"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_check_circle_outline"
+            app:tint="#000000"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/btnActionMic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_btn_speak_now"
+            app:tint="#000000"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/btnActionCamera"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_camera"
+            app:tint="#000000"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
 
 </LinearLayout>

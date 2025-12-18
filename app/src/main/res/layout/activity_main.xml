@@ -1,193 +1,765 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#F5F5F5">
+    android:background="#F8F9FA">
 
-    <TextView
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CatatIn"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#2196F3"
-        android:gravity="center"
-        android:layout_marginBottom="32dp" />
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavContainer"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="1"
-        android:rowCount="4"
-        android:layout_gravity="center">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardNotes"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#F3E5F5">
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp">
 
-            <LinearLayout
+            <!-- Header: Profile + Settings -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:src="@android:drawable/sym_def_app_icon"
+                app:civ_border_color="#E0E0E0"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Banar Pambudi"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/imgProfile"
+                app:layout_constraintTop_toTopOf="@id/imgProfile" />
+
+            <TextView
+                android:id="@+id/tvRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CEO Catatin"
+                android:textColor="#757575"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <ImageView
+                android:id="@+id/btnSettings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="24dp"
+                android:src="@android:drawable/ic_menu_preferences"
+                app:tint="#757575"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgProfile"
+                app:layout_constraintBottom_toBottomOf="@id/imgProfile"/>
+
+            <ImageView
+                android:id="@+id/btnNotif"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:src="@android:drawable/ic_popup_reminder"
+                app:tint="#757575"
+                app:layout_constraintEnd_toStartOf="@id/btnSettings"
+                app:layout_constraintTop_toTopOf="@id/btnSettings" />
+
+            <!-- Search Bar -->
+            <EditText
+                android:id="@+id/etSearch"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_rounded_grey"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="12dp"
+                android:hint="Search anything..."
+                android:paddingHorizontal="16dp"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
+            <!-- ===================== -->
+            <!-- BERANDA TITLE -->
+            <!-- ===================== -->
+            <TextView
+                android:id="@+id/tvTitleBeranda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="BERANDA"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etSearch" />
+
+            <!-- ===================== -->
+            <!-- FINANCE SECTION - NEW DESIGN -->
+            <!-- ===================== -->
+            <LinearLayout
+                android:id="@+id/layoutFinanceHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleBeranda">
+
+                <!-- Finance Icon -->
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_edit"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_money_hand"
+                    android:scaleType="fitCenter"/>
 
-                <TextView
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <!-- Month Selector -->
+                <LinearLayout
+                    android:id="@+id/layoutMonthSelector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_month_selector"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        android:id="@+id/tvSelectedMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="September"
+                        android:textColor="#333333"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/ic_dropdown"
+                        app:tint="#757575"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <!-- Visibility Toggle -->
+                <ImageView
+                    android:id="@+id/btnToggleVisibility"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_visibility"
+                    app:tint="#333333"/>
+            </LinearLayout>
+
+            <!-- Finance Stats Cards -->
+            <LinearLayout
+                android:id="@+id/layoutFinanceStats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintTop_toBottomOf="@id/layoutFinanceHeader">
+
+                <!-- Pemasukan -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTotalIncome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp450.000"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"
+                        android:textSize="14sp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_arrow_up"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Pemasukan"
+                            android:textColor="#333333"
+                            android:textSize="11sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Pengeluaran -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTotalExpense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp123.000"
+                        android:textStyle="bold"
+                        android:textColor="#F44336"
+                        android:textSize="14sp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_arrow_down"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Pengeluaran"
+                            android:textColor="#333333"
+                            android:textSize="11sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Saldo -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp.327.000"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"
+                        android:textSize="14sp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_wallet"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Saldo"
+                            android:textColor="#333333"
+                            android:textSize="11sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Pie Chart -->
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/layoutFinanceStats"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- ===================== -->
+            <!-- CATATAN SECTION - NOTEBOOK STYLE -->
+            <!-- ===================== -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutFilter"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:endIconTint="#000000"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pieChart">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tvCatatanTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="none"
+                    android:padding="0dp"
                     android:text="Catatan"
+                    android:textColor="#000000"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#7B1FA2" />
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Catatan teks biasa"
-                    android:textSize="12sp"
-                    android:textColor="#424242" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardVoiceNote"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#E3F2FD">
-
-            <LinearLayout
+            <!-- Notebook Frame with Notes -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCatatan"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_notebook_frame"
+                android:minHeight="300dp"
+                android:padding="8dp"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutFilter">
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@android:drawable/ic_btn_speak_now"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Spiral Rings at top -->
+                <LinearLayout
+                    android:id="@+id/spiralContainer"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Voice to Text"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#1976D2" />
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingHorizontal="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                    <View android:layout_width="12dp" android:layout_height="22dp" android:background="@drawable/ic_spiral" android:layout_margin="6dp"/>
+                </LinearLayout>
+
+                <!-- Inner content area with scroll indicator -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Catatan suara ke teks"
-                    android:textSize="12sp"
-                    android:textColor="#424242" />
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/spiralContainer"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
 
-            </LinearLayout>
+                    <!-- Scrollbar Container - only visible when more than 4 notes -->
+                    <LinearLayout
+                        android:id="@+id/layoutNotesScrollbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.cardview.widget.CardView>
+                        <!-- Up Arrow -->
+                        <ImageView
+                            android:id="@+id/btnNotesScrollUp"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@android:drawable/arrow_up_float"
+                            app:tint="#757575"/>
 
-        <androidx.cardview.widget.CardView
+                        <!-- Scrollbar track -->
+                        <View
+                            android:id="@+id/notesScrollTrack"
+                            android:layout_width="4dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="4dp"
+                            android:background="#E0E0E0"/>
+
+                        <!-- Down Arrow -->
+                        <ImageView
+                            android:id="@+id/btnNotesScrollDown"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@android:drawable/arrow_down_float"
+                            app:tint="#757575"/>
+                    </LinearLayout>
+
+                    <!-- ScrollView for Notes -->
+                    <androidx.core.widget.NestedScrollView
+                        android:id="@+id/scrollViewNotes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:maxHeight="280dp"
+                        android:scrollbars="none"
+                        app:layout_constraintEnd_toStartOf="@id/layoutNotesScrollbar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewNotesHome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:minHeight="200dp"/>
+                    </androidx.core.widget.NestedScrollView>
+
+                    <TextView
+                        android:id="@+id/tvEmptyNotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Belum ada catatan"
+                        android:textColor="#757575"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@id/scrollViewNotes"
+                        app:layout_constraintEnd_toStartOf="@id/layoutNotesScrollbar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/scrollViewNotes"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ===================== -->
+            <!-- TO-DO LIST SECTION - SCHEDULE VIEW -->
+            <!-- ===================== -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layoutToDoList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#F5F5F5"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutFilter">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:minHeight="300dp">
+
+                    <!-- Header: Mendatang + Week Toggle -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Mendatang"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="#333333"/>
+
+                        <LinearLayout
+                            android:id="@+id/layoutWeekToggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="4dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@android:drawable/ic_menu_sort_by_size"
+                                app:tint="#757575"/>
+
+                            <TextView
+                                android:id="@+id/tvWeekLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="Week"
+                                android:textColor="#757575"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Month/Year + Day Selector -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/layoutMonthYearSelector"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:id="@+id/tvTodoMonthYear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="September 2025"
+                                android:textColor="#757575"
+                                android:textSize="12sp"/>
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginStart="2dp"
+                                android:src="@drawable/ic_dropdown"
+                                app:tint="#757575"/>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <!-- Day Navigation -->
+                        <LinearLayout
+                            android:id="@+id/layoutDayNavigation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_day_selector"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/btnPrevDay"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_chevron_left"/>
+
+                            <TextView
+                                android:id="@+id/tvSelectedDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="12dp"
+                                android:text="Hari"
+                                android:textColor="#333333"
+                                android:textSize="12sp"/>
+
+                            <ImageView
+                                android:id="@+id/btnNextDay"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_chevron_right"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Schedule Grid -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Day Headers -->
+                            <LinearLayout
+                                android:id="@+id/layoutDayHeaders"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <!-- Empty space for time column -->
+                                <View
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <!-- Days will be added programmatically -->
+                            </LinearLayout>
+
+                            <!-- Time slots with events -->
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerViewTodosHome"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:nestedScrollingEnabled="false"/>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:id="@+id/tvEmptyTodos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="60dp"
+                        android:text="Belum ada tugas"
+                        android:textColor="#757575"
+                        android:textSize="14sp"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- ===================== -->
+    <!-- BOTTOM NAVIGATION -->
+    <!-- ===================== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View
+            android:id="@+id/activeIndicator"
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:background="@drawable/bg_indicator_active"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/navHome"
+            app:layout_constraintEnd_toEndOf="@id/navHome" />
+
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintWidth_percent="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cardNotes">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@android:drawable/ic_menu_rotate"
+                app:tint="#000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beranda"
+                android:textSize="10sp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardNotes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintWidth_percent="0.25"
+            app:layout_constraintStart_toEndOf="@id/navHome"
+            app:layout_constraintEnd_toStartOf="@id/cardTodoList">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@android:drawable/ic_menu_edit"
+                app:tint="#9E9E9E"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catatan"
+                android:textSize="10sp"
+                android:textColor="#9E9E9E"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/cardTodoList"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#E8F5E8">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintWidth_percent="0.25"
+            app:layout_constraintStart_toEndOf="@id/cardNotes"
+            app:layout_constraintEnd_toStartOf="@id/cardFinance">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="#9E9E9E"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To-Do List"
+                android:textSize="10sp"
+                android:textColor="#9E9E9E"/>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_agenda"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="To Do List"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#388E3C" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Daftar tugas harian"
-                    android:textSize="12sp"
-                    android:textColor="#424242" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:id="@+id/cardFinance"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#FFF3E0">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintWidth_percent="0.25"
+            app:layout_constraintStart_toEndOf="@id/cardTodoList"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@android:drawable/ic_menu_save"
+                app:tint="#9E9E9E"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keuangan"
+                android:textSize="10sp"
+                android:textColor="#9E9E9E"/>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@android:drawable/ic_menu_report_image"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Catatan Keuangan"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#F57C00" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kelola pemasukan &amp; pengeluaran"
-                    android:textSize="12sp"
-                    android:textColor="#424242" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </GridLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

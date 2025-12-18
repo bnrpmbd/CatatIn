@@ -1,216 +1,446 @@
 package com.alphacoms.catatin.ui
 
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.RadioButton
-import android.widget.Spinner
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.alphacoms.catatin.MainActivity
 import com.alphacoms.catatin.R
 import com.alphacoms.catatin.data.AppDatabase
 import com.alphacoms.catatin.data.FinanceRecord
+import com.alphacoms.catatin.data.PreferenceHelper
 import com.alphacoms.catatin.data.TransactionType
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
+import java.io.File
 import java.text.NumberFormat
-import java.util.Date
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
 
 class FinanceActivity : AppCompatActivity() {
 
     private lateinit var database: AppDatabase
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var financeAdapter: FinanceAdapter
+    private lateinit var preferenceHelper: PreferenceHelper
     private lateinit var fabAddFinance: FloatingActionButton
     private lateinit var tvTotalIncome: TextView
     private lateinit var tvTotalExpense: TextView
     private lateinit var tvBalance: TextView
+    private lateinit var tvYear: TextView
+    private lateinit var tvName: TextView
+    private lateinit var tvRole: TextView
+    private lateinit var imgProfile: ImageView
+    private lateinit var btnToggleAmount: ImageView
+    private lateinit var transactionsContainer: LinearLayout
 
-    private val incomeCategories = listOf(
-        "Gaji", "Freelance", "Investasi", "Hadiah", "Bonus", "Penjualan", "Lainnya"
-    )
-
-    private val expenseCategories = listOf(
-        "Makanan", "Transportasi", "Belanja", "Hiburan", "Tagihan", "Kesehatan", 
-        "Pendidikan", "Investasi", "Lainnya"
-    )
+    private lateinit var cardFabIncome: LinearLayout
+    private lateinit var cardFabExpense: LinearLayout
+    private lateinit var fabIncome: LinearLayout
+    private lateinit var fabExpense: LinearLayout
+    private var isFabOpen = false
+    
+    private var selectedYear = Calendar.getInstance().get(Calendar.YEAR)
+    private var allRecords: List<FinanceRecord> = emptyList()
+    
+    // Track expanded date sections
+    private val expandedDates = mutableSetOf<String>()
+    
+    // Toggle show/hide amounts
+    private var isAmountVisible = true
+    private var cachedIncome = 0.0
+    private var cachedExpense = 0.0
+    private var cachedBalance = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finance)
 
+        preferenceHelper = PreferenceHelper(this)
         initViews()
         setupDatabase()
-        setupRecyclerView()
         setupClickListeners()
         loadFinanceData()
-        observeFinanceTotals()
+        loadUserProfile()
+    }
+    
+    private fun loadUserProfile() {
+        tvName.text = preferenceHelper.getUserName()
+        tvRole.text = preferenceHelper.getUserRole()
+        loadProfileImage()
+    }
+    
+    private fun loadProfileImage() {
+        val profileImagePath = preferenceHelper.getProfileImagePath()
+        if (profileImagePath.isNotEmpty()) {
+            val file = File(profileImagePath)
+            if (file.exists()) {
+                val bitmap = BitmapFactory.decodeFile(profileImagePath)
+                imgProfile.setImageBitmap(bitmap)
+                return
+            }
+        }
+        imgProfile.setImageResource(android.R.drawable.sym_def_app_icon)
     }
 
     private fun initViews() {
-        recyclerView = findViewById(R.id.recyclerViewFinance)
         fabAddFinance = findViewById(R.id.fabAddFinance)
         tvTotalIncome = findViewById(R.id.tvTotalIncome)
         tvTotalExpense = findViewById(R.id.tvTotalExpense)
         tvBalance = findViewById(R.id.tvBalance)
+        tvYear = findViewById(R.id.tvYear)
+        tvName = findViewById(R.id.tvName)
+        tvRole = findViewById(R.id.tvRole)
+        imgProfile = findViewById(R.id.imgProfile)
+        btnToggleAmount = findViewById(R.id.btnToggleAmount)
+        transactionsContainer = findViewById(R.id.transactionsContainer)
+
+        cardFabIncome = findViewById(R.id.cardFabIncome)
+        cardFabExpense = findViewById(R.id.cardFabExpense)
+        fabIncome = findViewById(R.id.fabIncome)
+        fabExpense = findViewById(R.id.fabExpense)
+        
+        tvYear.text = selectedYear.toString()
     }
 
     private fun setupDatabase() {
         database = AppDatabase.getDatabase(this)
     }
 
-    private fun setupRecyclerView() {
-        financeAdapter = FinanceAdapter(
-            onItemClick = { record -> editFinanceRecord(record) },
-            onDeleteClick = { record -> deleteFinanceRecord(record) }
-        )
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = financeAdapter
-    }
-
     private fun setupClickListeners() {
         fabAddFinance.setOnClickListener {
-            showAddFinanceDialog()
+            toggleFab()
+        }
+
+        // Click on entire FAB row for income
+        cardFabIncome.setOnClickListener {
+            toggleFab()
+            showAddFinanceBottomSheet(TransactionType.INCOME)
+        }
+        
+        fabIncome.setOnClickListener {
+            toggleFab()
+            showAddFinanceBottomSheet(TransactionType.INCOME)
+        }
+
+        // Click on entire FAB row for expense
+        cardFabExpense.setOnClickListener {
+            toggleFab()
+            showAddFinanceBottomSheet(TransactionType.EXPENSE)
+        }
+        
+        fabExpense.setOnClickListener {
+            toggleFab()
+            showAddFinanceBottomSheet(TransactionType.EXPENSE)
+        }
+        
+        // Year navigation
+        findViewById<View>(R.id.btnPrevYear).setOnClickListener {
+            selectedYear--
+            tvYear.text = selectedYear.toString()
+            filterByYear()
+        }
+        
+        findViewById<View>(R.id.btnNextYear).setOnClickListener {
+            selectedYear++
+            tvYear.text = selectedYear.toString()
+            filterByYear()
+        }
+        
+        // Toggle show/hide amounts
+        btnToggleAmount.setOnClickListener {
+            isAmountVisible = !isAmountVisible
+            updateAmountVisibility()
+        }
+        
+        // Header buttons
+        findViewById<View>(R.id.btnSettings).setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+        
+        findViewById<View>(R.id.btnNotif).setOnClickListener {
+            Toast.makeText(this, "Tidak ada notifikasi baru", Toast.LENGTH_SHORT).show()
+        }
+        
+        findViewById<View>(R.id.imgProfile).setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
+        // Bottom Navigation with transitions
+        findViewById<View>(R.id.navHome).setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            finish()
+        }
+        findViewById<View>(R.id.navNotes).setOnClickListener {
+            startActivity(Intent(this, NotesActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            finish()
+        }
+        findViewById<View>(R.id.navTodo).setOnClickListener {
+            startActivity(Intent(this, ToDoListActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            finish()
+        }
+        findViewById<View>(R.id.navFinance).setOnClickListener {
+            // Already in Finance
         }
     }
-
-    private fun showAddFinanceDialog(record: FinanceRecord? = null) {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_add_finance, null)
-        val etTitle = dialogView.findViewById<TextInputEditText>(R.id.etFinanceTitle)
-        val etAmount = dialogView.findViewById<TextInputEditText>(R.id.etFinanceAmount)
-        val etDescription = dialogView.findViewById<TextInputEditText>(R.id.etFinanceDescription)
-        val rbIncome = dialogView.findViewById<RadioButton>(R.id.rbIncome)
-        val rbExpense = dialogView.findViewById<RadioButton>(R.id.rbExpense)
-        val spinnerCategory = dialogView.findViewById<Spinner>(R.id.spinnerFinanceCategory)
-
-        // Pre-fill if editing
-        record?.let {
-            etTitle.setText(it.title)
-            etAmount.setText(it.amount.toString())
-            etDescription.setText(it.description)
-            when (it.type) {
-                TransactionType.INCOME -> rbIncome.isChecked = true
-                TransactionType.EXPENSE -> rbExpense.isChecked = true
-            }
+    
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+    
+    private fun updateAmountVisibility() {
+        val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID")).apply {
+            maximumFractionDigits = 0
         }
-
-        // Setup category spinner based on transaction type
-        fun updateCategorySpinner(isIncome: Boolean) {
-            val categories = if (isIncome) incomeCategories else expenseCategories
-            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinnerCategory.adapter = adapter
-
-            // Pre-select if editing
-            record?.let {
-                val index = categories.indexOf(it.category)
-                if (index >= 0) spinnerCategory.setSelection(index)
-            }
+        
+        if (isAmountVisible) {
+            tvTotalIncome.text = formatter.format(cachedIncome)
+            tvTotalExpense.text = formatter.format(cachedExpense)
+            tvBalance.text = formatter.format(cachedBalance)
+            btnToggleAmount.setImageResource(android.R.drawable.ic_menu_view)
+        } else {
+            tvTotalIncome.text = "••••••••"
+            tvTotalExpense.text = "••••••••"
+            tvBalance.text = "••••••••"
+            btnToggleAmount.setImageResource(android.R.drawable.ic_secure)
         }
-
-        rbIncome.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) updateCategorySpinner(true)
+    }
+    
+    private fun showAddFinanceBottomSheet(type: TransactionType) {
+        val bottomSheet = AddFinanceBottomSheet.newInstance(type)
+        bottomSheet.setOnSaveListener { 
+            // Data will be automatically refreshed via LiveData observer
         }
-
-        rbExpense.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) updateCategorySpinner(false)
-        }
-
-        // Initial setup
-        updateCategorySpinner(rbIncome.isChecked)
-
-        AlertDialog.Builder(this)
-            .setTitle(if (record == null) "Tambah Transaksi" else "Edit Transaksi")
-            .setView(dialogView)
-            .setPositiveButton("Simpan") { _, _ ->
-                val title = etTitle.text.toString().trim()
-                val amountStr = etAmount.text.toString().trim()
-                val description = etDescription.text.toString().trim()
-                val category = spinnerCategory.selectedItem.toString()
-                val type = if (rbIncome.isChecked) TransactionType.INCOME else TransactionType.EXPENSE
-
-                if (title.isEmpty()) {
-                    Toast.makeText(this, "Judul tidak boleh kosong", Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                if (amountStr.isEmpty()) {
-                    Toast.makeText(this, "Jumlah tidak boleh kosong", Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                val amount = try {
-                    amountStr.toDouble()
-                } catch (e: NumberFormatException) {
-                    Toast.makeText(this, "Jumlah tidak valid", Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                if (amount <= 0) {
-                    Toast.makeText(this, "Jumlah harus lebih dari 0", Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                val newRecord = if (record == null) {
-                    FinanceRecord(
-                        title = title,
-                        amount = amount,
-                        type = type,
-                        category = category,
-                        description = description,
-                        createdAt = Date()
-                    )
-                } else {
-                    record.copy(
-                        title = title,
-                        amount = amount,
-                        type = type,
-                        category = category,
-                        description = description
-                    )
-                }
-
-                saveFinanceRecord(newRecord, record == null)
-            }
-            .setNegativeButton("Batal", null)
-            .show()
+        bottomSheet.show(supportFragmentManager, "AddFinanceBottomSheet")
     }
 
-    private fun saveFinanceRecord(record: FinanceRecord, isNew: Boolean) {
-        lifecycleScope.launch {
-            try {
-                if (isNew) {
-                    database.financeDao().insertFinanceRecord(record)
+    private fun loadFinanceData() {
+        database.financeDao().getAllFinanceRecords().observe(this) { records ->
+            allRecords = records
+            filterByYear()
+        }
+    }
+    
+    private fun filterByYear() {
+        val filtered = allRecords.filter { record ->
+            val cal = Calendar.getInstance()
+            cal.time = record.createdAt
+            cal.get(Calendar.YEAR) == selectedYear
+        }
+        renderTransactions(filtered)
+        updateTotalsForYear(filtered)
+    }
+    
+    private fun updateTotalsForYear(records: List<FinanceRecord>) {
+        cachedIncome = records.filter { it.type == TransactionType.INCOME }.sumOf { it.amount }
+        cachedExpense = records.filter { it.type == TransactionType.EXPENSE }.sumOf { it.amount }
+        cachedBalance = cachedIncome - cachedExpense
+        
+        updateAmountVisibility()
+        
+        tvBalance.setTextColor(
+            if (cachedBalance >= 0) Color.parseColor("#536DFE") else Color.parseColor("#F44336")
+        )
+    }
+    
+    private fun renderTransactions(records: List<FinanceRecord>) {
+        transactionsContainer.removeAllViews()
+        
+        if (records.isEmpty()) {
+            val emptyView = TextView(this).apply {
+                text = "Belum ada transaksi di tahun $selectedYear"
+                textSize = 14f
+                setTextColor(Color.parseColor("#9E9E9E"))
+                setPadding(0, 48, 0, 48)
+            }
+            transactionsContainer.addView(emptyView)
+            return
+        }
+        
+        // Group by date
+        val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
+        val displayFormat = SimpleDateFormat("EEEE, d/M", Locale("id", "ID"))
+        
+        val grouped = records.sortedByDescending { it.createdAt }
+            .groupBy { dateFormat.format(it.createdAt) }
+        
+        // Initially expand all dates
+        if (expandedDates.isEmpty()) {
+            expandedDates.addAll(grouped.keys)
+        }
+        
+        grouped.forEach { (dateKey, dateRecords) ->
+            val displayDate = displayFormat.format(dateRecords.first().createdAt)
+            
+            // Date Header
+            val headerView = LayoutInflater.from(this)
+                .inflate(R.layout.item_finance_date_header, transactionsContainer, false)
+            
+            val tvDateHeader = headerView.findViewById<TextView>(R.id.tvDateHeader)
+            val ivExpand = headerView.findViewById<ImageView>(R.id.ivExpand)
+            
+            tvDateHeader.text = displayDate
+            
+            val isExpanded = expandedDates.contains(dateKey)
+            ivExpand.rotation = if (isExpanded) 0f else -90f
+            
+            transactionsContainer.addView(headerView)
+            
+            // Card with transaction items
+            val card = CardView(this).apply {
+                radius = 24f
+                cardElevation = 2f
+                setCardBackgroundColor(Color.WHITE)
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    bottomMargin = 16
+                }
+                visibility = if (isExpanded) View.VISIBLE else View.GONE
+                tag = dateKey
+            }
+            
+            val innerContainer = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+            }
+            
+            dateRecords.forEachIndexed { index, record ->
+                val itemView = createTransactionItem(record)
+                innerContainer.addView(itemView)
+                
+                // Divider
+                if (index < dateRecords.size - 1) {
+                    val divider = View(this).apply {
+                        layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT, 1
+                        ).apply {
+                            marginStart = 76
+                            marginEnd = 16
+                        }
+                        setBackgroundColor(Color.parseColor("#EEEEEE"))
+                    }
+                    innerContainer.addView(divider)
+                }
+            }
+            
+            card.addView(innerContainer)
+            
+            // Click to toggle
+            headerView.setOnClickListener {
+                if (expandedDates.contains(dateKey)) {
+                    expandedDates.remove(dateKey)
+                    ivExpand.animate().rotation(-90f).setDuration(200)
+                    card.visibility = View.GONE
                 } else {
-                    database.financeDao().updateFinanceRecord(record)
+                    expandedDates.add(dateKey)
+                    ivExpand.animate().rotation(0f).setDuration(200)
+                    card.visibility = View.VISIBLE
                 }
-                runOnUiThread {
-                    Toast.makeText(
-                        this@FinanceActivity,
-                        if (isNew) "Transaksi berhasil ditambahkan!" else "Transaksi berhasil diupdate!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            } catch (e: Exception) {
-                runOnUiThread {
-                    Toast.makeText(
-                        this@FinanceActivity,
-                        "Error menyimpan transaksi: ${e.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+            }
+            
+            transactionsContainer.addView(card)
+        }
+    }
+    
+    private fun createTransactionItem(record: FinanceRecord): View {
+        val view = LayoutInflater.from(this)
+            .inflate(R.layout.item_finance_transaction, null)
+        
+        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+        val tvDescription = view.findViewById<TextView>(R.id.tvDescription)
+        val tvAmount = view.findViewById<TextView>(R.id.tvAmount)
+        val tvPaymentMethod = view.findViewById<TextView>(R.id.tvPaymentMethod)
+        val ivIcon = view.findViewById<ImageView>(R.id.ivIcon)
+        val cardIcon = view.findViewById<CardView>(R.id.cardIcon)
+        
+        tvTitle.text = record.title
+        tvDescription.text = record.description.ifEmpty { record.category }
+        tvPaymentMethod.text = record.paymentMethod
+        
+        // Format amount
+        val formatter = NumberFormat.getNumberInstance(Locale("id", "ID"))
+        val amountStr = if (record.type == TransactionType.INCOME) {
+            "+Rp${formatter.format(record.amount.toLong())}"
+        } else {
+            "-Rp${formatter.format(record.amount.toLong())}"
+        }
+        tvAmount.text = amountStr
+        
+        // Set colors based on type
+        if (record.type == TransactionType.INCOME) {
+            tvAmount.setTextColor(Color.parseColor("#4CAF50"))
+        } else {
+            tvAmount.setTextColor(Color.parseColor("#F44336"))
+        }
+        
+        // Set icon based on category
+        setIconForCategory(ivIcon, cardIcon, record.category)
+        
+        // Click listeners
+        view.setOnClickListener {
+            editFinanceRecord(record)
+        }
+        
+        view.setOnLongClickListener {
+            deleteFinanceRecord(record)
+            true
+        }
+        
+        return view
+    }
+    
+    private fun setIconForCategory(ivIcon: ImageView, cardIcon: CardView, category: String) {
+        when (category.lowercase()) {
+            "makanan", "makan" -> {
+                ivIcon.setImageResource(android.R.drawable.ic_menu_compass)
+                cardIcon.setCardBackgroundColor(Color.parseColor("#FFF3E0"))
+            }
+            "transportasi", "bensin" -> {
+                ivIcon.setImageResource(android.R.drawable.ic_menu_directions)
+                cardIcon.setCardBackgroundColor(Color.parseColor("#E3F2FD"))
+            }
+            "belanja" -> {
+                ivIcon.setImageResource(android.R.drawable.ic_menu_upload)
+                cardIcon.setCardBackgroundColor(Color.parseColor("#FCE4EC"))
+            }
+            "hiburan" -> {
+                ivIcon.setImageResource(android.R.drawable.ic_menu_gallery)
+                cardIcon.setCardBackgroundColor(Color.parseColor("#F3E5F5"))
+            }
+            "tagihan", "pulsa" -> {
+                ivIcon.setImageResource(android.R.drawable.ic_menu_call)
+                cardIcon.setCardBackgroundColor(Color.parseColor("#E8F5E9"))
+            }
+            "gaji", "bonus" -> {
+                ivIcon.setImageResource(android.R.drawable.ic_menu_save)
+                cardIcon.setCardBackgroundColor(Color.parseColor("#E8F5E9"))
+            }
+            else -> {
+                ivIcon.setImageResource(android.R.drawable.ic_menu_save)
+                cardIcon.setCardBackgroundColor(Color.parseColor("#FFF8E1"))
             }
         }
     }
 
     private fun editFinanceRecord(record: FinanceRecord) {
-        showAddFinanceDialog(record)
+        val bottomSheet = AddFinanceBottomSheet.newInstance(record.type, record)
+        bottomSheet.setOnSaveListener { }
+        bottomSheet.show(supportFragmentManager, "EditFinanceBottomSheet")
     }
 
     private fun deleteFinanceRecord(record: FinanceRecord) {
@@ -226,7 +456,7 @@ class FinanceActivity : AppCompatActivity() {
                         }
                     } catch (e: Exception) {
                         runOnUiThread {
-                            Toast.makeText(this@FinanceActivity, "Error menghapus transaksi: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@FinanceActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -235,44 +465,29 @@ class FinanceActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun loadFinanceData() {
-        database.financeDao().getAllFinanceRecords().observe(this) { records ->
-            financeAdapter.submitList(records)
+    private fun toggleFab() {
+        if (isFabOpen) {
+            cardFabIncome.animate().alpha(0f).translationY(50f).setDuration(200).withEndAction {
+                cardFabIncome.visibility = View.GONE
+            }
+            cardFabExpense.animate().alpha(0f).translationY(50f).setDuration(150).withEndAction {
+                cardFabExpense.visibility = View.GONE
+            }
+            fabAddFinance.animate().rotation(0f).setDuration(200)
+            isFabOpen = false
+        } else {
+            cardFabIncome.visibility = View.VISIBLE
+            cardFabIncome.alpha = 0f
+            cardFabIncome.translationY = 50f
+            cardFabIncome.animate().alpha(1f).translationY(0f).setDuration(200)
+            
+            cardFabExpense.visibility = View.VISIBLE
+            cardFabExpense.alpha = 0f
+            cardFabExpense.translationY = 50f
+            cardFabExpense.animate().alpha(1f).translationY(0f).setDuration(250)
+            
+            fabAddFinance.animate().rotation(45f).setDuration(200)
+            isFabOpen = true
         }
-    }
-
-    private fun observeFinanceTotals() {
-        val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
-        
-        // Variables to store current values
-        var currentIncome = 0.0
-        var currentExpense = 0.0
-
-        // Observe income changes
-        database.financeDao().getTotalIncome().observe(this) { totalIncome ->
-            currentIncome = totalIncome ?: 0.0
-            tvTotalIncome.text = formatter.format(currentIncome)
-            // Update balance whenever income changes
-            updateBalanceDisplay(currentIncome, currentExpense, formatter)
-        }
-
-        // Observe expense changes
-        database.financeDao().getTotalExpense().observe(this) { totalExpense ->
-            currentExpense = totalExpense ?: 0.0
-            tvTotalExpense.text = formatter.format(currentExpense)
-            // Update balance whenever expense changes
-            updateBalanceDisplay(currentIncome, currentExpense, formatter)
-        }
-    }
-
-    private fun updateBalanceDisplay(income: Double, expense: Double, formatter: NumberFormat) {
-        val balance = income - expense
-        tvBalance.text = formatter.format(balance)
-        tvBalance.setTextColor(
-            if (balance >= 0) 
-                android.graphics.Color.parseColor("#4CAF50") 
-            else 
-                android.graphics.Color.parseColor("#F44336")
-        )
     }
 }

@@ -1,0 +1,64 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    
+    <!-- Background circle -->
+    <path
+        android:pathData="M50,50m-45,0a45,45 0,1 1,90 0a45,45 0,1 1,-90 0"
+        android:fillColor="#E8F5E9"/>
+    
+    <!-- Clipboard body -->
+    <path
+        android:pathData="M30,25h40c2.2,0 4,1.8 4,4v46c0,2.2 -1.8,4 -4,4H30c-2.2,0 -4,-1.8 -4,-4V29c0,-2.2 1.8,-4 4,-4z"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#4CAF50"
+        android:strokeWidth="2"/>
+    
+    <!-- Clipboard clip -->
+    <path
+        android:pathData="M42,20h16c2.2,0 4,1.8 4,4v4H38v-4c0,-2.2 1.8,-4 4,-4z"
+        android:fillColor="#4CAF50"/>
+    
+    <!-- Checkbox checked -->
+    <path
+        android:pathData="M32,36h10v10H32z"
+        android:fillColor="#4CAF50"/>
+    <path
+        android:pathData="M34,41l3,3l5,-6"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+    <path
+        android:pathData="M46,41h22"
+        android:strokeColor="#81C784"
+        android:strokeWidth="2"/>
+    
+    <!-- Checkbox checked -->
+    <path
+        android:pathData="M32,52h10v10H32z"
+        android:fillColor="#4CAF50"/>
+    <path
+        android:pathData="M34,57l3,3l5,-6"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+    <path
+        android:pathData="M46,57h18"
+        android:strokeColor="#81C784"
+        android:strokeWidth="2"/>
+    
+    <!-- Checkbox unchecked -->
+    <path
+        android:pathData="M32,68h10v10H32z"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#BDBDBD"
+        android:strokeWidth="1"/>
+    <path
+        android:pathData="M46,73h14"
+        android:strokeColor="#BDBDBD"
+        android:strokeWidth="2"/>
+</vector>

@@ -2,6 +2,7 @@ package com.alphacoms.catatin.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import java.util.Date
 
 @Dao
 interface FinanceDao {
@@ -22,6 +23,9 @@ interface FinanceDao {
 
     @Query("SELECT * FROM finance_records WHERE id = :id")
     suspend fun getFinanceRecordById(id: Long): FinanceRecord?
+    
+    @Query("SELECT * FROM finance_records WHERE createdAt BETWEEN :startDate AND :endDate ORDER BY createdAt DESC")
+    suspend fun getRecordsBetweenDatesSync(startDate: Date, endDate: Date): List<FinanceRecord>
 
     @Insert
     suspend fun insertFinanceRecord(record: FinanceRecord): Long

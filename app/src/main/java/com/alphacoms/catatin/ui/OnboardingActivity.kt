@@ -23,27 +23,22 @@ class OnboardingActivity : AppCompatActivity() {
 
     private val onboardingItems = listOf(
         OnboardingItem(
-            icon = android.R.drawable.ic_menu_edit,
+            icon = R.drawable.ic_onboarding_notes,
             title = "Catatan",
             description = "Buat dan simpan catatan penting Anda dengan mudah. Tulis ide, pengingat, atau apapun yang perlu Anda ingat."
         ),
         OnboardingItem(
-            icon = android.R.drawable.ic_btn_speak_now,
-            title = "Voice Note",
-            description = "Rekam catatan Anda dengan suara! Ubah suara menjadi teks secara langsung, cepat dan praktis tanpa perlu mengetik."
-        ),
-        OnboardingItem(
-            icon = android.R.drawable.ic_menu_my_calendar,
+            icon = R.drawable.ic_onboarding_todo,
             title = "To-Do List",
             description = "Atur tugas dan kegiatan harian Anda. Tandai prioritas, set deadline, dan centang saat selesai untuk produktivitas maksimal."
         ),
         OnboardingItem(
-            icon = android.R.drawable.ic_menu_report_image,
+            icon = R.drawable.ic_onboarding_finance,
             title = "Keuangan",
             description = "Catat pemasukan dan pengeluaran Anda. Pantau kondisi keuangan dengan mudah dan kelola budget dengan lebih baik."
         ),
         OnboardingItem(
-            icon = android.R.drawable.ic_menu_search,
+            icon = R.drawable.ic_onboarding_start,
             title = "Siap Memulai!",
             description = "Semua fitur CatatIn siap membantu Anda mengatur hidup lebih terorganisir. Mari mulai mencatat!"
         )

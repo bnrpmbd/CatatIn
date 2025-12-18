@@ -12,232 +12,272 @@
 12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 12-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:6:5-71
 12-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:6:22-68
-13    <uses-permission android:name="android.permission.INTERNET" />
-13-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:7:5-67
-13-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:7:22-64
-14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-14-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:8:5-79
-14-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:8:22-76
-15
-16    <!-- Storage permissions (compatibility for different Android versions) -->
-17    <uses-permission
-17-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:11:5-12:38
-18        android:name="android.permission.READ_EXTERNAL_STORAGE"
-18-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:11:22-77
-19        android:maxSdkVersion="32" />
-19-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:12:9-35
-20    <uses-permission
-20-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:13:5-14:38
-21        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-21-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:13:22-78
-22        android:maxSdkVersion="29" />
-22-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:14:9-35
-23
-24    <!-- Android 13+ permissions -->
-25    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-25-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:17:5-75
-25-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:17:22-72
-26
-27    <!-- Speech Recognition feature -->
-28    <uses-feature
-28-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:20:5-22:35
-29        android:name="android.hardware.microphone"
-29-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:21:9-51
-30        android:required="true" />
-30-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:22:9-32
-31
-32    <permission
-32-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
-33        android:name="com.alphacoms.catatin.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-33-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
-34        android:protectionLevel="signature" />
-34-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
-35
-36    <uses-permission android:name="com.alphacoms.catatin.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-36-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
-36-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
-37
-38    <application
-38-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:24:5-83:19
-39        android:allowBackup="true"
-39-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:25:9-35
-40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-40-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\5b67ff43a7cafb43c03ce18c9a41c57e\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
-41        android:dataExtractionRules="@xml/data_extraction_rules"
-41-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:26:9-65
-42        android:debuggable="true"
-43        android:extractNativeLibs="false"
-44        android:fullBackupContent="@xml/backup_rules"
-44-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:27:9-54
-45        android:icon="@mipmap/ic_launcher"
-45-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:28:9-43
-46        android:label="@string/app_name"
-46-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:29:9-41
-47        android:roundIcon="@mipmap/ic_launcher_round"
-47-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:30:9-54
-48        android:supportsRtl="true"
-48-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:31:9-35
-49        android:testOnly="true"
-50        android:theme="@style/Theme.CatatIn"
-50-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:32:9-45
-51        android:usesCleartextTraffic="false" >
-51-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:33:9-45
-52
-53        <!-- Splash Screen Activity (LAUNCHER) -->
-54        <activity
-54-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:37:9-45:20
-55            android:name="com.alphacoms.catatin.ui.SplashActivity"
-55-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:38:13-46
-56            android:exported="true"
-56-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:39:13-36
-57            android:theme="@style/Theme.CatatIn.NoActionBar" >
-57-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:40:13-61
-58            <intent-filter>
-58-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:41:13-44:29
-59                <action android:name="android.intent.action.MAIN" />
-59-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:42:17-69
-59-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:42:25-66
-60
-61                <category android:name="android.intent.category.LAUNCHER" />
-61-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:43:17-77
-61-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:43:27-74
-62            </intent-filter>
-63        </activity>
-64
-65        <!-- Onboarding Activity -->
-66        <activity
-66-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:48:9-51:64
-67            android:name="com.alphacoms.catatin.ui.OnboardingActivity"
-67-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:49:13-50
-68            android:exported="false"
-68-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:50:13-37
-69            android:theme="@style/Theme.CatatIn.NoActionBar" />
-69-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:51:13-61
-70
-71        <!-- Main Activity -->
-72        <activity
-72-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:54:9-57:52
-73            android:name="com.alphacoms.catatin.MainActivity"
-73-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:55:13-41
-74            android:exported="false"
-74-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:56:13-37
-75            android:theme="@style/Theme.CatatIn" />
-75-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:57:13-49
-76
-77        <!-- Voice Note Activity -->
-78        <activity
-78-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:60:9-63:58
-79            android:name="com.alphacoms.catatin.ui.VoiceNoteActivity"
-79-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:61:13-49
-80            android:exported="false"
-80-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:62:13-37
-81            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
-81-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:63:13-55
-82
-83        <!-- Notes Activity -->
-84        <activity
-84-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:66:9-69:58
-85            android:name="com.alphacoms.catatin.ui.NotesActivity"
-85-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:67:13-45
-86            android:exported="false"
-86-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:68:13-37
-87            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
-87-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:69:13-55
-88
-89        <!-- Todo List Activity -->
-90        <activity
-90-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:72:9-75:58
-91            android:name="com.alphacoms.catatin.ui.ToDoListActivity"
-91-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:73:13-48
-92            android:exported="false"
-92-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:74:13-37
-93            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
-93-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:75:13-55
-94
-95        <!-- Finance Activity -->
-96        <activity
-96-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:78:9-81:58
-97            android:name="com.alphacoms.catatin.ui.FinanceActivity"
-97-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:79:13-47
-98            android:exported="false"
-98-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:80:13-37
-99            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
-99-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:81:13-55
-100
-101        <service
-101-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:24:9-28:63
-102            android:name="androidx.room.MultiInstanceInvalidationService"
-102-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:25:13-74
-103            android:directBootAware="true"
-103-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:26:13-43
-104            android:exported="false" />
-104-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\74e7023f49003afa79c15c102621f131\transformed\room-runtime-2.6.0\AndroidManifest.xml:27:13-37
-105
-106        <provider
-106-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\065eb3217cd2ef4ab7eec0aaf3360956\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-107            android:name="androidx.startup.InitializationProvider"
-107-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\065eb3217cd2ef4ab7eec0aaf3360956\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-108            android:authorities="com.alphacoms.catatin.androidx-startup"
-108-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\065eb3217cd2ef4ab7eec0aaf3360956\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-109            android:exported="false" >
-109-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\065eb3217cd2ef4ab7eec0aaf3360956\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-110            <meta-data
-110-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\065eb3217cd2ef4ab7eec0aaf3360956\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-111                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-111-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\065eb3217cd2ef4ab7eec0aaf3360956\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-112                android:value="androidx.startup" />
-112-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\065eb3217cd2ef4ab7eec0aaf3360956\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-113            <meta-data
-113-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\39ed792356cb0f214776ad51e96759c9\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
-114                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-114-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\39ed792356cb0f214776ad51e96759c9\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
-115                android:value="androidx.startup" />
-115-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\39ed792356cb0f214776ad51e96759c9\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
-116            <meta-data
-116-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-117                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-117-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-118                android:value="androidx.startup" />
-118-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-119        </provider>
-120
-121        <receiver
-121-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-122            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-122-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-123            android:directBootAware="false"
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-124            android:enabled="true"
-124-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-125            android:exported="true"
-125-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-126            android:permission="android.permission.DUMP" >
-126-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-127            <intent-filter>
-127-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-128                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-129            </intent-filter>
-130            <intent-filter>
-130-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-131                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-131-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-131-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-132            </intent-filter>
-133            <intent-filter>
-133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-134                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-135            </intent-filter>
-136            <intent-filter>
-136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-137                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-137-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-137-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\965f849056347e962555b9025eb0c4f0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-138            </intent-filter>
-139        </receiver>
-140    </application>
-141
-142</manifest>
+13    <uses-permission android:name="android.permission.CAMERA" />
+13-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:7:5-65
+13-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:7:22-62
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:8:5-67
+14-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:8:22-64
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:9:5-79
+15-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:9:22-76
+16
+17    <!-- Storage permissions (compatibility for different Android versions) -->
+18    <uses-permission
+18-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:12:5-13:38
+19        android:name="android.permission.READ_EXTERNAL_STORAGE"
+19-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:12:22-77
+20        android:maxSdkVersion="32" />
+20-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:13:9-35
+21    <uses-permission
+21-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:14:5-15:38
+22        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+22-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:14:22-78
+23        android:maxSdkVersion="29" />
+23-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:15:9-35
+24
+25    <!-- Android 13+ permissions -->
+26    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+26-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:18:5-75
+26-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:18:22-72
+27    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+27-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:19:5-76
+27-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:19:22-73
+28
+29    <!-- Speech Recognition feature -->
+30    <uses-feature
+30-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:22:5-24:35
+31        android:name="android.hardware.microphone"
+31-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:23:9-51
+32        android:required="true" />
+32-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:24:9-32
+33
+34    <!-- Camera feature -->
+35    <uses-feature
+35-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:27:5-29:36
+36        android:name="android.hardware.camera"
+36-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:28:9-47
+37        android:required="false" />
+37-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:29:9-33
+38
+39    <permission
+39-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\a1df6cfce6574ae674a3c38298c86188\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+40        android:name="com.alphacoms.catatin.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+40-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\a1df6cfce6574ae674a3c38298c86188\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+41        android:protectionLevel="signature" />
+41-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\a1df6cfce6574ae674a3c38298c86188\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+42
+43    <uses-permission android:name="com.alphacoms.catatin.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+43-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\a1df6cfce6574ae674a3c38298c86188\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+43-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\a1df6cfce6574ae674a3c38298c86188\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+44
+45    <application
+45-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:31:5-105:19
+46        android:allowBackup="true"
+46-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:32:9-35
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.12.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\a1df6cfce6574ae674a3c38298c86188\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+48        android:dataExtractionRules="@xml/data_extraction_rules"
+48-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:33:9-65
+49        android:debuggable="true"
+50        android:extractNativeLibs="false"
+51        android:fullBackupContent="@xml/backup_rules"
+51-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:34:9-54
+52        android:icon="@mipmap/ic_launcher"
+52-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:35:9-43
+53        android:label="@string/app_name"
+53-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:36:9-41
+54        android:roundIcon="@mipmap/ic_launcher_round"
+54-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:37:9-54
+55        android:supportsRtl="true"
+55-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:38:9-35
+56        android:testOnly="true"
+57        android:theme="@style/Theme.CatatIn"
+57-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:39:9-45
+58        android:usesCleartextTraffic="false" >
+58-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:40:9-45
+59
+60        <!-- Splash Screen Activity (LAUNCHER) -->
+61        <activity
+61-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:44:9-52:20
+62            android:name="com.alphacoms.catatin.ui.SplashActivity"
+62-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:45:13-46
+63            android:exported="true"
+63-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:46:13-36
+64            android:theme="@style/Theme.CatatIn.NoActionBar" >
+64-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:47:13-61
+65            <intent-filter>
+65-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:48:13-51:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:49:17-69
+66-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:49:25-66
+67
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:50:17-77
+68-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:50:27-74
+69            </intent-filter>
+70        </activity>
+71
+72        <!-- Onboarding Activity -->
+73        <activity
+73-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:55:9-58:64
+74            android:name="com.alphacoms.catatin.ui.OnboardingActivity"
+74-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:56:13-50
+75            android:exported="false"
+75-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:57:13-37
+76            android:theme="@style/Theme.CatatIn.NoActionBar" />
+76-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:58:13-61
+77
+78        <!-- Main Activity -->
+79        <activity
+79-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:61:9-64:52
+80            android:name="com.alphacoms.catatin.MainActivity"
+80-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:62:13-41
+81            android:exported="false"
+81-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:63:13-37
+82            android:theme="@style/Theme.CatatIn" />
+82-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:64:13-49
+83
+84        <!-- Notes Activity -->
+85        <activity
+85-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:67:9-71:58
+86            android:name="com.alphacoms.catatin.ui.NotesActivity"
+86-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:68:13-45
+87            android:exported="false"
+87-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:69:13-37
+88            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+88-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:71:13-55
+89            android:theme="@style/Theme.CatatIn" />
+89-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:70:13-49
+90
+91        <!-- Todo List Activity -->
+92        <activity
+92-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:74:9-78:58
+93            android:name="com.alphacoms.catatin.ui.ToDoListActivity"
+93-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:75:13-48
+94            android:exported="false"
+94-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:76:13-37
+95            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+95-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:78:13-55
+96            android:theme="@style/Theme.CatatIn" />
+96-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:77:13-49
+97
+98        <!-- Finance Activity -->
+99        <activity
+99-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:81:9-85:58
+100            android:name="com.alphacoms.catatin.ui.FinanceActivity"
+100-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:82:13-47
+101            android:exported="false"
+101-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:83:13-37
+102            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+102-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:85:13-55
+103            android:theme="@style/Theme.CatatIn" />
+103-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:84:13-49
+104
+105        <!-- Settings Activity -->
+106        <activity
+106-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:88:9-92:58
+107            android:name="com.alphacoms.catatin.ui.SettingsActivity"
+107-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:89:13-48
+108            android:exported="false"
+108-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:90:13-37
+109            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+109-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:92:13-55
+110            android:theme="@style/Theme.CatatIn" />
+110-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:91:13-49
+111
+112        <!-- FileProvider for Camera -->
+113        <provider
+114            android:name="androidx.core.content.FileProvider"
+114-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:96:13-62
+115            android:authorities="com.alphacoms.catatin.provider"
+115-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:97:13-60
+116            android:exported="false"
+116-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:98:13-37
+117            android:grantUriPermissions="true" >
+117-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:99:13-47
+118            <meta-data
+118-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:100:13-102:54
+119                android:name="android.support.FILE_PROVIDER_PATHS"
+119-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:101:17-67
+120                android:resource="@xml/file_paths" />
+120-->D:\Aplikasi Android\CatatIn\app\src\main\AndroidManifest.xml:102:17-51
+121        </provider>
+122
+123        <service
+123-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\486651bb45adf3784c8bbfa5272c3a6e\transformed\room-runtime-2.6.0\AndroidManifest.xml:24:9-28:63
+124            android:name="androidx.room.MultiInstanceInvalidationService"
+124-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\486651bb45adf3784c8bbfa5272c3a6e\transformed\room-runtime-2.6.0\AndroidManifest.xml:25:13-74
+125            android:directBootAware="true"
+125-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\486651bb45adf3784c8bbfa5272c3a6e\transformed\room-runtime-2.6.0\AndroidManifest.xml:26:13-43
+126            android:exported="false" />
+126-->[androidx.room:room-runtime:2.6.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\486651bb45adf3784c8bbfa5272c3a6e\transformed\room-runtime-2.6.0\AndroidManifest.xml:27:13-37
+127
+128        <provider
+128-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\d82c1808e982c00fcbde42152c70d5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+129            android:name="androidx.startup.InitializationProvider"
+129-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\d82c1808e982c00fcbde42152c70d5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+130            android:authorities="com.alphacoms.catatin.androidx-startup"
+130-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\d82c1808e982c00fcbde42152c70d5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+131            android:exported="false" >
+131-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\d82c1808e982c00fcbde42152c70d5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+132            <meta-data
+132-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\d82c1808e982c00fcbde42152c70d5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+133                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+133-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\d82c1808e982c00fcbde42152c70d5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+134                android:value="androidx.startup" />
+134-->[androidx.emoji2:emoji2:1.2.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\d82c1808e982c00fcbde42152c70d5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+135            <meta-data
+135-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\4b0d180572c5b87d6731cc9a6004308a\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+136                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+136-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\4b0d180572c5b87d6731cc9a6004308a\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+137                android:value="androidx.startup" />
+137-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\4b0d180572c5b87d6731cc9a6004308a\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+138            <meta-data
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+139                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+140                android:value="androidx.startup" />
+140-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+141        </provider>
+142
+143        <receiver
+143-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+144            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+145            android:directBootAware="false"
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+146            android:enabled="true"
+146-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+147            android:exported="true"
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+148            android:permission="android.permission.DUMP" >
+148-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+149            <intent-filter>
+149-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+150                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+151            </intent-filter>
+152            <intent-filter>
+152-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+153                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+154            </intent-filter>
+155            <intent-filter>
+155-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+156                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+157            </intent-filter>
+158            <intent-filter>
+158-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+159                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+159-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+159-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASUS\.gradle\caches\8.14.3\transforms\e08559074b3cfbb206d7cd874b276141\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+160            </intent-filter>
+161        </receiver>
+162    </application>
+163
+164</manifest>

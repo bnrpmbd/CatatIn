@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 
 @Database(
     entities = [Note::class, ToDo::class, FinanceRecord::class],
-    version = 1,
+    version = 6,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -27,7 +27,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "catatin_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration() // Otomatis rebuild database jika ada perubahan schema
+                    .build()
                 INSTANCE = instance
                 instance
             }

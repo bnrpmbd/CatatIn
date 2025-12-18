@@ -22,9 +22,9 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="8dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,20 +37,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Todo Title"
+                    android:textColor="#212121"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvTodoPriority"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HIGH"
-                    android:textSize="10sp"
-                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="8dp"
                     android:background="#FF9800"
                     android:padding="4dp"
-                    android:layout_marginStart="8dp" />
+                    android:text="HIGH"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
@@ -58,21 +58,21 @@
                 android:id="@+id/tvTodoDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Todo description..."
-                android:textSize="14sp"
-                android:textColor="#757575"
                 android:layout_marginTop="4dp"
+                android:ellipsize="end"
                 android:maxLines="2"
-                android:ellipsize="end" />
+                android:text="Todo description..."
+                android:textColor="#757575"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvTodoDueDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Due: 01/01/2023"
-                android:textSize="12sp"
                 android:textColor="#9E9E9E"
-                android:layout_marginTop="8dp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -80,9 +80,9 @@
             android:id="@+id/btnDeleteTodo"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@android:drawable/ic_menu_delete"
+            android:layout_gravity="top"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_gravity="top" />
+            android:src="@android:drawable/ic_menu_delete" />
 
     </LinearLayout>
 

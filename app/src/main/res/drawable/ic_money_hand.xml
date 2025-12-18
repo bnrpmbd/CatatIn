@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="60dp"
+    android:height="60dp"
+    android:viewportWidth="60"
+    android:viewportHeight="60">
+    
+    <!-- Hand holding money - simplified icon -->
+    <!-- Background circle with gradient effect -->
+    <path
+        android:fillColor="#E8F5E9"
+        android:pathData="M30,30m-28,0a28,28 0,1 1,56 0a28,28 0,1 1,-56 0"/>
+    
+    <!-- Money/Bills -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M15,18 L45,18 L45,32 L15,32 Z"/>
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M17,20 L43,20 L43,30 L17,30 Z"/>
+    <path
+        android:fillColor="#388E3C"
+        android:pathData="M25,22 L35,22 L35,28 L25,28 Z"/>
+    
+    <!-- Dollar/Rupiah symbol -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M29,23 L31,23 L31,27 L29,27 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M27,24 L33,24 L33,26 L27,26 Z"/>
+    
+    <!-- Coin -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M42,28m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0"/>
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M42,28m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0"/>
+    <path
+        android:fillColor="#FF9800"
+        android:pathData="M40,26 L44,26 L44,30 L40,30 Z"/>
+    
+    <!-- Hand outline -->
+    <path
+        android:fillColor="#FFCCBC"
+        android:pathData="M10,35 Q8,42 15,48 L25,48 L25,40 Q20,38 18,35 Z"/>
+    <path
+        android:fillColor="#FFAB91"
+        android:pathData="M25,40 L25,48 L35,48 L35,42 Q30,40 25,40"/>
+
+</vector>

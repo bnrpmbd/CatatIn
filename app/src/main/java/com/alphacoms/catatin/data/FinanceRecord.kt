@@ -13,6 +13,8 @@ data class FinanceRecord(
     val type: TransactionType,
     val category: String,
     val description: String = "",
+    val paymentMethod: String = "Tunai",
+    val icon: String = "default",
     val createdAt: Date
 )
 

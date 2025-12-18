@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
 }
 
 android {
@@ -54,11 +54,6 @@ android {
     // Assets configuration removed - models are downloaded at runtime
 }
 
-kapt {
-    correctErrorTypes true
-    useBuildCache false
-}
-
 dependencies {
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -67,14 +62,17 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
     implementation "com.google.code.gson:gson:2.10.1"
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    
+
+    // Library MPAndroidChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
     // Vosk Speech Recognition (Offline)
     implementation 'com.alphacephei:vosk-android:0.3.47'
     
     // Room components
     implementation 'androidx.room:room-runtime:2.6.0'
     implementation 'androidx.room:room-ktx:2.6.0'
-    kapt 'androidx.room:room-compiler:2.6.0'
+    ksp 'androidx.room:room-compiler:2.6.0'
     
     // Lifecycle components
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
@@ -91,6 +89,9 @@ dependencies {
     
     // File handling
     implementation 'androidx.documentfile:documentfile:1.0.1'
+    
+    // CircleImageView for profile
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     
     // Testing
     testImplementation 'junit:junit:4.13.2'

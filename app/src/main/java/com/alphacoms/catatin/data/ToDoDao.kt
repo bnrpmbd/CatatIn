@@ -7,6 +7,9 @@ import androidx.room.*
 interface ToDoDao {
     @Query("SELECT * FROM todos ORDER BY priority DESC, createdAt DESC")
     fun getAllTodos(): LiveData<List<ToDo>>
+    
+    @Query("SELECT * FROM todos ORDER BY priority DESC, createdAt DESC")
+    suspend fun getAllTodosSync(): List<ToDo>
 
     @Query("SELECT * FROM todos WHERE isCompleted = 0 ORDER BY priority DESC, createdAt DESC")
     fun getActiveTodos(): LiveData<List<ToDo>>

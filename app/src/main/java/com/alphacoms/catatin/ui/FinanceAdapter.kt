@@ -1,10 +1,12 @@
 package com.alphacoms.catatin.ui
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -31,40 +33,46 @@ class FinanceAdapter(
     }
 
     inner class FinanceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val tvTitle: TextView = itemView.findViewById(R.id.tvFinanceTitle)
-        private val tvAmount: TextView = itemView.findViewById(R.id.tvFinanceAmount)
-        private val tvCategory: TextView = itemView.findViewById(R.id.tvFinanceCategory)
-        private val tvDescription: TextView = itemView.findViewById(R.id.tvFinanceDescription)
-        private val tvDate: TextView = itemView.findViewById(R.id.tvFinanceDate)
-        private val btnDelete: ImageButton = itemView.findViewById(R.id.btnDeleteFinance)
+        private val tvCategory: TextView = itemView.findViewById(R.id.tvCategory)
+        private val tvDescription: TextView = itemView.findViewById(R.id.tvDescription)
+        private val tvDate: TextView = itemView.findViewById(R.id.tvDate)
+        private val tvAmount: TextView = itemView.findViewById(R.id.tvAmount)
+        private val tvType: TextView = itemView.findViewById(R.id.tvType)
+        private val ivIcon: ImageView = itemView.findViewById(R.id.ivIcon)
 
         fun bind(record: FinanceRecord) {
-            tvTitle.text = record.title
+            tvCategory.text = record.category
+            tvDescription.text = record.title
             
             // Format amount with currency
             val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
             val amountText = formatter.format(record.amount)
             tvAmount.text = amountText
             
-            // Set color based on transaction type
-            tvAmount.setTextColor(
-                if (record.type == TransactionType.INCOME) 
-                    android.graphics.Color.parseColor("#4CAF50") 
-                else 
-                    android.graphics.Color.parseColor("#F44336")
-            )
+            // Set color and type text based on transaction type
+            if (record.type == TransactionType.INCOME) {
+                tvAmount.setTextColor(Color.parseColor("#4CAF50"))
+                tvType.text = "Pemasukan"
+                ivIcon.setImageResource(android.R.drawable.arrow_up_float)
+                ivIcon.setColorFilter(Color.parseColor("#4CAF50"))
+            } else {
+                tvAmount.setTextColor(Color.parseColor("#F44336"))
+                tvType.text = "Pengeluaran"
+                ivIcon.setImageResource(android.R.drawable.arrow_down_float)
+                ivIcon.setColorFilter(Color.parseColor("#F44336"))
+            }
             
-            tvCategory.text = record.category
-            tvDescription.text = record.description
-            tvDate.text = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(record.createdAt)
+            tvDate.text = SimpleDateFormat("dd MMM yyyy", Locale("id", "ID")).format(record.createdAt)
             
             // Set listeners
             itemView.setOnClickListener {
                 onItemClick(record)
             }
             
-            btnDelete.setOnClickListener {
+            // Delete functionality is moved to edit dialog or long press
+            itemView.setOnLongClickListener {
                 onDeleteClick(record)
+                true
             }
         }
     }

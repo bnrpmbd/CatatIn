@@ -12,4 +12,5 @@
     <string name="delete">Hapus</string>
     <string name="edit">Edit</string>
     <string name="voice_input">Voice Input</string>
+    <string name="priority_badge_format">%1$s ▼</string>
 </resources>

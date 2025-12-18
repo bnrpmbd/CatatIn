@@ -12,6 +12,7 @@
     <color name="colorPrimary">#1976D2</color>
     <color name="expense_red">#F44336</color>
     <color name="income_green">#4CAF50</color>
+    <color name="logo_background">#FFFFFF</color>
     <color name="primary_blue">#2196F3</color>
     <color name="primary_green">#4CAF50</color>
     <color name="primary_orange">#FF9800</color>
@@ -41,11 +42,18 @@
     <string name="delete">Hapus</string>
     <string name="edit">Edit</string>
     <string name="finance_title">Catatan Keuangan</string>
+    <string name="priority_badge_format">%1$s ▼</string>
     <string name="save">Simpan</string>
     <string name="todo_list_title">To Do List</string>
     <string name="voice_input">Voice Input</string>
     <string name="voice_note_title">Voice to Text</string>
-    <style name="Theme.CatatIn" parent="Theme.Material3.DayNight">
+    <style name="CustomBottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
+    </style>
+    <style name="CustomBottomSheetDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+    <style name="Theme.CatatIn" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>

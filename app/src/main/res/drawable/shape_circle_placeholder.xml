@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Warna latar belakang lingkaran (abu-abu muda) -->
+    <solid android:color="#E0E0E0" />
+
+    <!-- Ukuran default (opsional, karena ImageView sudah mengatur ukuran) -->
+    <size
+        android:width="50dp"
+        android:height="50dp"/>
+</shape>

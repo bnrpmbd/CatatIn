@@ -11,5 +11,9 @@ data class Note(
     val title: String,
     val content: String,
     val createdAt: Date,
-    val isVoiceNote: Boolean = false
+    val isVoiceNote: Boolean = false,
+    val isPinned: Boolean = false,
+    val imagePath: String? = null,
+    val isDeleted: Boolean = false,
+    val deletedAt: Date? = null
 )

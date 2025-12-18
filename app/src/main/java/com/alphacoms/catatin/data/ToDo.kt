@@ -13,7 +13,10 @@ data class ToDo(
     val isCompleted: Boolean = false,
     val createdAt: Date,
     val dueDate: Date? = null,
-    val priority: Priority = Priority.NORMAL
+    val priority: Priority = Priority.NORMAL,
+    val category: String = "Tugas",
+    val hasAlarm: Boolean = false,
+    val repeatOption: String = "Tidak pernah"
 )
 
 //enum class Priority {

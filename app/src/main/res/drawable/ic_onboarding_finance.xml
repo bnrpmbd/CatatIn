@@ -1,0 +1,43 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    
+    <!-- Background circle -->
+    <path
+        android:pathData="M50,50m-45,0a45,45 0,1 1,90 0a45,45 0,1 1,-90 0"
+        android:fillColor="#FFF3E0"/>
+    
+    <!-- Wallet body -->
+    <path
+        android:pathData="M20,35h60c2.2,0 4,1.8 4,4v30c0,2.2 -1.8,4 -4,4H20c-2.2,0 -4,-1.8 -4,-4V39c0,-2.2 1.8,-4 4,-4z"
+        android:fillColor="#FF9800"/>
+    
+    <!-- Wallet flap -->
+    <path
+        android:pathData="M20,35c-2.2,0 -4,1.8 -4,4v6h68v-6c0,-2.2 -1.8,-4 -4,-4z"
+        android:fillColor="#F57C00"/>
+    
+    <!-- Card slot -->
+    <path
+        android:pathData="M60,50h18v14H60z"
+        android:fillColor="#FFFFFF"/>
+    
+    <!-- Money icon -->
+    <path
+        android:pathData="M30,55m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0"
+        android:fillColor="#4CAF50"/>
+    <path
+        android:pathData="M30,51v8M28,53h4M28,57h4"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"/>
+    
+    <!-- Coins -->
+    <path
+        android:pathData="M48,60m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0"
+        android:fillColor="#FFC107"/>
+    <path
+        android:pathData="M52,56m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0"
+        android:fillColor="#FFEB3B"/>
+</vector>

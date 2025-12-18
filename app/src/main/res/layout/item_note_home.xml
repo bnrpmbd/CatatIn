@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <!-- Sticky note card -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:padding="12dp"
+        android:background="@drawable/bg_sticky_note_yellow">
+
+        <!-- Lines pattern (notebook lines) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#22000000"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#22000000"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#22000000"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#22000000"/>
+        </LinearLayout>
+
+        <!-- Title text -->
+        <TextView
+            android:id="@+id/tvNoteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Judul Catatan"
+            android:textSize="13sp"
+            android:textColor="#333333"
+            android:textStyle="italic"
+            android:maxLines="3"
+            android:lineSpacingMultiplier="1.2"
+            android:gravity="center"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Content (hidden but kept for data) -->
+        <TextView
+            android:id="@+id/tvNoteContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Tape decoration (top right) -->
+    <View
+        android:id="@+id/viewTape"
+        android:layout_width="35dp"
+        android:layout_height="12dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="8dp"
+        android:rotation="30"
+        android:background="#8080DEEA"/>
+
+</FrameLayout>

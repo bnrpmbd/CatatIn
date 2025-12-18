@@ -4,6 +4,7 @@
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     
@@ -15,11 +16,17 @@
     
     <!-- Android 13+ permissions -->
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <!-- Speech Recognition feature -->
     <uses-feature
         android:name="android.hardware.microphone"
         android:required="true" />
+    
+    <!-- Camera feature -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -56,29 +63,44 @@
             android:exported="false"
             android:theme="@style/Theme.CatatIn" />
 
-        <!-- Voice Note Activity -->
-        <activity
-            android:name=".ui.VoiceNoteActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
-
         <!-- Notes Activity -->
         <activity
             android:name=".ui.NotesActivity"
             android:exported="false"
+            android:theme="@style/Theme.CatatIn"
             android:parentActivityName=".MainActivity" />
 
         <!-- Todo List Activity -->
         <activity
             android:name=".ui.ToDoListActivity"
             android:exported="false"
+            android:theme="@style/Theme.CatatIn"
             android:parentActivityName=".MainActivity" />
 
         <!-- Finance Activity -->
         <activity
             android:name=".ui.FinanceActivity"
             android:exported="false"
+            android:theme="@style/Theme.CatatIn"
             android:parentActivityName=".MainActivity" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CatatIn"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- FileProvider for Camera -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 

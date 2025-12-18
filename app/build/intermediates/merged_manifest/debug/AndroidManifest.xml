@@ -10,6 +10,7 @@
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -23,11 +24,17 @@
 
     <!-- Android 13+ permissions -->
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <!-- Speech Recognition feature -->
     <uses-feature
         android:name="android.hardware.microphone"
         android:required="true" />
+
+    <!-- Camera feature -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <permission
         android:name="com.alphacoms.catatin.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -74,29 +81,44 @@
             android:exported="false"
             android:theme="@style/Theme.CatatIn" />
 
-        <!-- Voice Note Activity -->
-        <activity
-            android:name="com.alphacoms.catatin.ui.VoiceNoteActivity"
-            android:exported="false"
-            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
-
         <!-- Notes Activity -->
         <activity
             android:name="com.alphacoms.catatin.ui.NotesActivity"
             android:exported="false"
-            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
+            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+            android:theme="@style/Theme.CatatIn" />
 
         <!-- Todo List Activity -->
         <activity
             android:name="com.alphacoms.catatin.ui.ToDoListActivity"
             android:exported="false"
-            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
+            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+            android:theme="@style/Theme.CatatIn" />
 
         <!-- Finance Activity -->
         <activity
             android:name="com.alphacoms.catatin.ui.FinanceActivity"
             android:exported="false"
-            android:parentActivityName="com.alphacoms.catatin.MainActivity" />
+            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+            android:theme="@style/Theme.CatatIn" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name="com.alphacoms.catatin.ui.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName="com.alphacoms.catatin.MainActivity"
+            android:theme="@style/Theme.CatatIn" />
+
+        <!-- FileProvider for Camera -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.alphacoms.catatin.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"
