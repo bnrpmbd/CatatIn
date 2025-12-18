@@ -127,12 +127,12 @@ implementation "com.google.android.material:material:1.12.0"
 
 ## 👥 Tim Pengembang
 
-**AlphaComs Team** - Tugas Akhir PAPB 2024
+**AlphaComs Team** - Tugas Akhir PAPB 2025
 
 ## 📄 License
 
 ```
-Copyright © 2024 AlphaComs
+Copyright © 2025 AlphaComs
 
 Project ini dibuat untuk tugas akhir mata kuliah 
 Pengembangan Aplikasi Perangkat Bergerak (PAPB).

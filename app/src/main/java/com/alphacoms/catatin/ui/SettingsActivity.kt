@@ -198,7 +198,7 @@ class SettingsActivity : AppCompatActivity() {
     private fun showAboutDialog() {
         AlertDialog.Builder(this)
             .setTitle("Tentang CatatIn")
-            .setMessage("CatatIn v1.0.0\n\nAplikasi pencatatan all-in-one untuk:\n• Catatan\n• To-Do List\n• Voice Note\n• Keuangan\n\n© 2024 Alphacoms")
+            .setMessage("CatatIn v1.0.0\n\nAplikasi pencatatan all-in-one untuk:\n• Catatan\n• To-Do List\n• Keuangan\n\n© 2025 Alphacoms")
             .setPositiveButton("OK", null)
             .show()
     }
