@@ -85,11 +85,11 @@ app/src/main/
 
 | Splash | Onboarding | Beranda |
 |--------|------------|---------|
-| *Splash Screen* | *Onboarding Flow* | *Dashboard* |
+| ![Splash](screenshots/splash.jpeg) | ![Onboarding](screenshots/onboarding.jpeg) | ![Beranda](screenshots/beranda.jpeg) |
 
 | Notes | To-Do | Finance |
 |-------|-------|---------|
-| *Notes List* | *To-Do List* | *Finance Tracker* |
+| ![Notes](screenshots/note.jpeg) | ![To-Do](screenshots/todo.jpeg) | ![Finance](screenshots/finance.jpeg) |
 
 ## 🚀 Instalasi
 
